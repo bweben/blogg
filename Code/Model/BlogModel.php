@@ -19,12 +19,12 @@ class BlogModel extends Model
         if ($userId == 0) {
             $sql = <<<EOF
                         SELECT B.Titel as Titel, B.Text as Text, B.Date as Date, U.Email as Email, U.Nickname as Nick, C.Description as Descr, U.ID as UID
-                        FROM Blog as B JOIN Users as U ON B.UserId = U.ID JOIN Categorie as C ON B.CategorieID = U.ID ORDER BY B.Date desc;
+                        FROM Blog as B JOIN Users as U ON B.UserId = U.ID JOIN Categorie as C ON B.CategorieID = C.ID ORDER BY B.Date desc;
 EOF;
         } else {
             $sql = <<<EOF
                         SELECT B.Titel as Titel, B.Text as Text, B.Date as Date, U.Email as Email, U.Nickname as Nick, C.Description as Descr, U.ID as UID
-                        FROM Blog as B JOIN Users as U ON B.UserId = U.ID JOIN Categorie as C ON B.CategorieID = U.ID WHERE UserID = '$userId' ORDER BY B.Date desc;
+                        FROM Blog as B JOIN Users as U ON B.UserId = U.ID JOIN Categorie as C ON B.CategorieID = C.ID WHERE UserID = '$userId' ORDER BY B.Date desc;
 EOF;
         }
 
