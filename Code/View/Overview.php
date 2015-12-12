@@ -17,9 +17,11 @@ EOF;
         <?php for($i = 0; $i < count($blogs);$i ++) {
             echo '
             <div class="panel panel-default">
-              <div class="panel-heading">'.$blogs[$i][0].' von: <a /Blog/index/'.$blogs[$i][6].'>'.$blogs[$i][4].'</a></div>
+              <div class="panel-heading">'.$blogs[$i][0].'<a href="/Blog/index/'.$blogs[$i][6].'">'.$blogs[$i][4].'</a></div>
               <div class="panel-body">
-                '.$blogs[$i][1].'
+                <p>
+                    '.$blogs[$i][1].'
+                </p>
               </div>
             </div>';
 

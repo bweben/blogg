@@ -32,18 +32,24 @@ class LoginController
 
             $email = $_GET['username'];
             $password = $_GET['password1'];
-            $userId = $loginModel->login($email,$password) != 0;
+            $userId = $loginModel->login($email,$password);
 
             if ($userId == 0) {
                 $this->redirect('/');
             } else {
                 $_SESSION['UserId'] = $userId;
+                $_SESSION['UserName'] = $email;
+
                 $this->redirect('/Blog/index');
             }
 
         } else {
             $this->redirect('/');
         }
+    }
+
+    public function logout() {
+        session_destroy();
     }
 
     public function create() {

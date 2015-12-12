@@ -18,17 +18,29 @@ class BlogController
         $view->display();
     }
 
-    public function index() {
+    public function checkLogin() {
+        if (isset($_SESSION['UserId'])) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    public function index($userId = 0) {
         $blogModel = new BlogModel();
         $view = new View("Overview");
-        $view->blogs = $blogModel->read();
+        $view->blogs = $blogModel->read($userId);
         $view->newBlog = "Create new Blog";
         $view->display();
     }
 
     public function create() {
-        $view = new View("newBlog");
-        $view->display();
+        if ($this->checkLogin()) {
+            $view = new View("newBlog");
+            $view->display();
+        } else {
+            $this->redirect('/');
+        }
     }
 
     public function doCreate() {
@@ -37,7 +49,7 @@ class BlogController
 
         $categorieId = $categorieModel->getId($_POST['categorieId']);
 
-        if ($_SESSION['UserId']) {
+        if ($this->checkLogin()) {
             if ($_POST['blogName'] != "") {
                 $blogModel->createBlog($_SESSION['UserId'],$_POST['blogName'],$_POST['blogText'],
                     $categorieId);
@@ -45,7 +57,7 @@ class BlogController
 
         }
 
-        //$this->redirect('/Blog');
+        $this->redirect('/Blog');
     }
 
     public function delete($blogId) {

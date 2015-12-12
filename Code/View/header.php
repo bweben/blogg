@@ -56,7 +56,8 @@
                 <button type="submit" class="btn btn-default">Submit</button>
             </form>
             <ul class="nav navbar-nav navbar-right">
-                <li><a href="#">Link</a></li>
+                <?php if(isset($_SESSION['UserId'])) { echo '<li><a href="/Login/logout">'.$_SESSION['UserName'].'</a></li>';}
+                else { echo '<li><a href="/Login/login">Login</a></li>'; } ?>
             </ul>
         </div>
     </div>
