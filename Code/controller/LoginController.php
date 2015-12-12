@@ -18,6 +18,9 @@ class LoginController
 
     public function index()
     {
+        if (isset($_SESSION['UserId'])) {
+            $this->redirect('/Blog');
+        }
         $loginModel = new LoginModel();
         $view = new View("main");
         $view->display();
