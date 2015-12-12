@@ -50,6 +50,7 @@ class LoginController
 
     public function logout() {
         session_destroy();
+        $this->redirect('/');
     }
 
     public function create() {

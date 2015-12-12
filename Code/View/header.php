@@ -56,7 +56,13 @@
                 <button type="submit" class="btn btn-default">Submit</button>
             </form>
             <ul class="nav navbar-nav navbar-right">
-                <?php if(isset($_SESSION['UserId'])) { echo '<li><a href="/Login/logout">'.$_SESSION['UserName'].'</a></li>';}
+                <?php if(isset($_SESSION['UserId'])) { echo '<li class="dropdown">
+                    <a href="/" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">'.$_SESSION['UserName'].'<span class="caret"></span></a>
+                    <ul class="dropdown-menu" role="menu">
+                        <li><a href="/Blog/index/'.$_SESSION['UserId'].'">Eigene Einträge</a></li>
+                        <li><a href="/Login/logout">Logout</a></li>
+                    </ul>
+                </li>';}
                 else { echo '<li><a href="/Login/login">Login</a></li>'; } ?>
             </ul>
         </div>
