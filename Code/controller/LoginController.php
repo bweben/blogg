@@ -67,6 +67,8 @@ class LoginController
 
                 if ($userId != 0) {
                     $_SESSION['UserId'] = $userId;
+                    $_SESSION['UserName'] = $email;
+
                     $this->redirect('/Blog/index');
                 }
             }

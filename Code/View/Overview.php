@@ -16,13 +16,18 @@ EOF;
     <div class="form">
         <?php for($i = 0; $i < count($blogs);$i ++) {
             echo '
-            <div class="panel panel-default">
-              <div class="panel-heading">'.$blogs[$i][0].' <a href="/Blog/index/'.$blogs[$i][6].'">'.$blogs[$i][4].'</a></p></div>
-              <div class="panel-body">
-                <p>
-                    '.$blogs[$i][1].'
-                </p>
-              </div>
+            <div class="bs-component">
+                <div class="panel panel-default">
+                  <div class="panel-heading">'.$blogs[$i][0].' <a href="/Blog/index/'.$blogs[$i][6].'">'.$blogs[$i][4].'</a></div>
+                  <div class="panel-body">
+                    <p>
+                        '.$blogs[$i][1].'
+                    </p>
+                  </div>
+                  <div class="panel-footer">
+                    <a href="#">0 Comments</a>
+                  </div>
+                </div>
             </div>';
 
         } ?>

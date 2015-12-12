@@ -34,6 +34,9 @@ EOF;
         }
 
         $db->close();
+
+        $_SESSION['Admin'] = $admin == 1 ? true : false;
+
         return $userId;
     }
 
