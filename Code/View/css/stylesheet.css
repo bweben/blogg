@@ -1,0 +1,16 @@
+
+
+/*
+sets the padding and margin of the body to zero
+*/
+body {
+    padding: 0;
+    margin: 0;
+}
+/*
+sets the form in the middle of the page
+*/
+#form_div {
+    width: 65%;
+    margin: 0 auto;
+}
