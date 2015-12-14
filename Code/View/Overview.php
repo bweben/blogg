@@ -25,7 +25,7 @@ EOF;
                     </p>
                   </div>
                   <div class="panel-footer">
-                    <a href="#">0 Comments</a>
+                    <a href="#">'.$blogs[$i][7].' Comments</a>
                   </div>
                 </div>
             </div>';

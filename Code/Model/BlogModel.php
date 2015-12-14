@@ -12,19 +12,24 @@ require_once('Database.php');
 
 class BlogModel extends Model
 {
-    public function read($userId = 0) {
+    public function read($userId = 0,$blogId = 0) {
         $db = new MyDB();
         $sql = "";
 
-        if ($userId == 0) {
+        if ($blogId != 0) {
             $sql = <<<EOF
-                        SELECT B.Titel as Titel, B.Text as Text, B.Date as Date, U.Email as Email, U.Nickname as Nick, C.Description as Descr, U.ID as UID
-                        FROM Blog as B JOIN Users as U ON B.UserId = U.ID JOIN Categorie as C ON B.CategorieID = C.ID ORDER BY B.Date desc;
+                        SELECT B.Titel as Titel, B.Text as Text, B.Date as Date, U.Email as Email, U.Nickname as Nick, C.Description as Descr, U.ID as UID, count(Co.ID) as Comments
+                        FROM Blog as B JOIN Users as U ON B.UserId = U.ID JOIN Categorie as C ON B.CategorieID = C.ID LEFT JOIN Comments as Co ON B.ID = Co.BlogID WHERE B.ID = '$blogId' ORDER BY B.Date desc;
+EOF;
+        } elseif ($userId == 0) {
+            $sql = <<<EOF
+                        SELECT B.Titel as Titel, B.Text as Text, B.Date as Date, U.Email as Email, U.Nickname as Nick, C.Description as Descr, U.ID as UID, count(Co.ID) as Comments
+                        FROM Blog as B JOIN Users as U ON B.UserId = U.ID JOIN Categorie as C ON B.CategorieID = C.ID LEFT JOIN Comments as Co ON B.ID = Co.BlogID ORDER BY B.Date desc;
 EOF;
         } else {
             $sql = <<<EOF
-                        SELECT B.Titel as Titel, B.Text as Text, B.Date as Date, U.Email as Email, U.Nickname as Nick, C.Description as Descr, U.ID as UID
-                        FROM Blog as B JOIN Users as U ON B.UserId = U.ID JOIN Categorie as C ON B.CategorieID = C.ID WHERE UserID = '$userId' ORDER BY B.Date desc;
+                        SELECT B.Titel as Titel, B.Text as Text, B.Date as Date, U.Email as Email, U.Nickname as Nick, C.Description as Descr, U.ID as UID, count(Co.ID) as Comments
+                        FROM Blog as B JOIN Users as U ON B.UserId = U.ID JOIN Categorie as C ON B.CategorieID = C.ID LEFT JOIN Comments as Co ON B.ID WHERE = Co.BlogID UserID = '$userId' ORDER BY B.Date desc;
 EOF;
         }
 
@@ -44,6 +49,11 @@ EOF;
             $result[count($result)-1][] = $row['Nick'];
             $result[count($result)-1][] = $row['Descr'];
             $result[count($result)-1][] = $row['UID'];
+            $result[count($result)-1][] = $row['Comments'];
+        }
+
+        if (strlen($result[0][0]) == 0) {
+            $result = array();
         }
 
         $db->close();
@@ -114,5 +124,10 @@ EOF;
         }
 
         $db->close();
+    }
+
+    public function readById($id)
+    {
+
     }
 }

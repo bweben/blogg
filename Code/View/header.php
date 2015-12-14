@@ -63,7 +63,7 @@
                         <li><a href="/Login/logout">Logout</a></li>
                     </ul>
                 </li>';}
-                else { echo '<li><a href="/Login/login">Login</a></li>'; } ?>
+                else { echo '<li><a href="/">Login</a></li>'; } ?>
             </ul>
         </div>
     </div>

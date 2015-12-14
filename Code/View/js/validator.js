@@ -87,7 +87,7 @@ $(document).ready(function (){
 
         // if its a sign up and not a sign in
         if (!((password2 == null || password2 == "") && man == false && woman == false
-            && sportTypes.length == 0 && email != "" && password1 != "")) {
+            && email != "" && password1 != "")) {
             if (!secPasswordValidation(password1,password2)) {
                 $("#password2Lbl").css("color","red");
                 showError("'Passwort wiederholen' stimmt nicht mit 'Passwort' überein.");

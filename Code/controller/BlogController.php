@@ -22,8 +22,17 @@ class BlogController
         if (isset($_SESSION['UserId'])) {
             return true;
         } else {
+            $this->redirect('/Blog/index');
             return false;
         }
+    }
+
+    public function checkPermissionDel($userId) {
+        return $_SESSION['UserId'] == $userId || $_SESSION['Admin'];
+    }
+
+    public function checkPermissionCha($userId) {
+        return $_SESSION['UserId'] == $userId;
     }
 
     public function index($userId = 0) {
@@ -37,6 +46,9 @@ class BlogController
     public function create() {
         if ($this->checkLogin()) {
             $view = new View("newBlog");
+            $view->src = "/Blog/doCreate";
+            $view->blogName = "";
+            $view->blogText = "";
             $view->display();
         } else {
             $this->redirect('/');
@@ -61,8 +73,26 @@ class BlogController
     }
 
     public function delete($blogId) {
-        $blogModel = new BlogModel();
-        $blogModel->deleteBlog($blogId);
+        if ($this->checkLogin()) {
+            $blogModel = new BlogModel();
+            $blogModel->deleteBlog($blogId);
+        }
+    }
+
+    public function change($blogId) {
+        if ($this->checkLogin()) {
+            $blogModel = new BlogModel();
+            $blog = $blogModel->read(0,$blogId);
+            $view = new View("newBlog");
+            $view->src = "/Blog/doChange";
+            $view->blogName = $blog[0][0];
+            $view->blogText = $blog[0][1];
+            $view->display();
+        }
+    }
+
+    public function doChange() {
+        print_r($_POST);
     }
 
     function redirect($url)

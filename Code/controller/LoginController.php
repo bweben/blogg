@@ -63,10 +63,11 @@ class LoginController
             $email = $_GET['username'];
             $password1 = $_GET['password1'];
             $password2 = $_GET['password2'];
+            $nick = $_GET['nickName'];
 
             if ($password1 == $password2) {
                 $userId = 0;
-                $userId = $loginModel->create($email,$password1);
+                $userId = $loginModel->create($email,$password1,$nick);
 
                 if ($userId != 0) {
                     $_SESSION['UserId'] = $userId;

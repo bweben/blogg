@@ -12,11 +12,12 @@ require_once('Database.php');
 class LoginModel
 {
 
-    public function create($email, $password)
+    public function create($email, $password,$nick = "")
     {
         $email = htmlspecialchars($email);
-        $nickname = $email;
+        $nickname = $nick != "" ? $nick : $email;
         $admin = 0;
+        $password2 = md5($password);
 
         if ($email == "admin@admin.ch") {
             $admin = 1;
@@ -25,19 +26,21 @@ class LoginModel
         $db = new MyDb();
         $sql =<<<EOF
 			INSERT INTO Users (Email,Password,Nickname,Admin)
-			VALUES ("$email","$password","$nickname",$admin);
+			VALUES ("$email","$password2","$nickname",$admin);
 EOF;
 
         $userId = $db->exec($sql);
         if (!$userId) {
             echo $db->lastErrorMsg();
+        } else {
+
         }
 
         $db->close();
 
         $_SESSION['Admin'] = $admin == 1 ? true : false;
 
-        return $userId;
+        return $this->login($email,$password);
     }
 
     public function login($email, $password1)
@@ -45,6 +48,7 @@ EOF;
         $userId = 0;
 
         $email = htmlspecialchars($email);
+        $password1 = md5($password1);
 
         $db = new MyDB();
 

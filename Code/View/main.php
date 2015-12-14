@@ -33,21 +33,10 @@
                 </div>
             </div>
             <div class="form-group" title="Wählen Sie Ihre Sportart oder Ihre Sportarten">
-                <label class="col-lg-2 control-label" id="sportLbl">Sportarten*: </label>
-                    <div class="col-lg-10">
-                        <div class="checkbox">
-                            <label for="soccer"><input type="checkbox" name="sportTypes[]" id="soccer" value="soccer">Fussball</label>
-                        </div>
-                        <div class="checkbox">
-                            <Label for="handball"><input type="checkbox" name="sportTypes[]" id="handball" value="handball">Handball</Label>
-                        </div>
-                        <div class="checkbox">
-                            <Label for="basketball"><input type="checkbox" name="sportTypes[]" id="basketball" value="basketball">Basketball</Label>
-                        </div>
-                        <div class="checkbox">
-                            <Label for="volleyball"><input type="checkbox" name="sportTypes[]" id="volleyball" value="volleyball">Volleyball</Label>
-                        </div>
-                    </div>
+                <label class="col-lg-2 control-label" id="nickLbl" for="nickName">Nickname*: </label>
+                <div class="col-lg-10" title="Bitte geben Sie Ihren Nicknamen ein">
+                    <input class="form-control" type="text" name="nickName" id="nickName" placeholder="Nickname">
+                </div>
             </div>
             <div class="form-group" title="Wählen Sie Ihren Wohnort">
                 <label class="col-lg-2 control-label" id="locationLbl" for="location">Wohnort*: </label>
