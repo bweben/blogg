@@ -18,20 +18,25 @@ class BlogModel extends Model
 
         if ($blogId != 0) {
             $sql = <<<EOF
-                        SELECT B.Titel as Titel, B.Text as Text, B.Date as Date, U.Email as Email, U.Nickname as Nick, C.Description as Descr, U.ID as UID, count(Co.ID) as Comments
-                        FROM Blog as B JOIN Users as U ON B.UserId = U.ID JOIN Categorie as C ON B.CategorieID = C.ID LEFT JOIN Comments as Co ON B.ID = Co.BlogID WHERE B.ID = '$blogId' ORDER BY B.Date desc;
+                        SELECT B.Titel as Titel, B.Text as Text, B.Date as Date, U.Email as Email, U.Nickname as Nick, C.Description as Descr, U.ID as UID, count(Co.ID) as Comments, B.ID as ID
+                        FROM Blog as B JOIN Users as U ON B.UserId = U.ID JOIN Categorie as C ON B.CategorieID = C.ID LEFT JOIN Comments as Co ON B.ID = Co.BlogID GROUP BY B.ID WHERE B.ID = '$blogId' ORDER BY B.Date desc;
 EOF;
         } elseif ($userId == 0) {
             $sql = <<<EOF
-                        SELECT B.Titel as Titel, B.Text as Text, B.Date as Date, U.Email as Email, U.Nickname as Nick, C.Description as Descr, U.ID as UID, count(Co.ID) as Comments
-                        FROM Blog as B JOIN Users as U ON B.UserId = U.ID JOIN Categorie as C ON B.CategorieID = C.ID LEFT JOIN Comments as Co ON B.ID = Co.BlogID ORDER BY B.Date desc;
+                        SELECT B.Titel as Titel, B.Text as Text, B.Date as Date, U.Email as Email, U.Nickname as Nick, C.Description as Descr, U.ID as UID, count(Co.ID) as Comments, B.ID as ID
+                        FROM Blog as B JOIN Users as U ON B.UserId = U.ID JOIN Categorie as C ON B.CategorieID = C.ID LEFT JOIN Comments as Co ON B.ID = Co.BlogID GROUP BY B.ID ORDER BY B.Date desc;
 EOF;
         } else {
             $sql = <<<EOF
-                        SELECT B.Titel as Titel, B.Text as Text, B.Date as Date, U.Email as Email, U.Nickname as Nick, C.Description as Descr, U.ID as UID, count(Co.ID) as Comments
-                        FROM Blog as B JOIN Users as U ON B.UserId = U.ID JOIN Categorie as C ON B.CategorieID = C.ID LEFT JOIN Comments as Co ON B.ID WHERE = Co.BlogID UserID = '$userId' ORDER BY B.Date desc;
+                        SELECT B.Titel as Titel, B.Text as Text, B.Date as Date, U.Email as Email, U.Nickname as Nick, C.Description as Descr, U.ID as UID, count(Co.ID) as Comments, B.ID as ID
+                        FROM Blog as B JOIN Users as U ON B.UserId = U.ID JOIN Categorie as C ON B.CategorieID = C.ID LEFT JOIN Comments as Co ON B.ID = Co.BlogID WHERE U.ID = '$userId' GROUP BY B.ID ORDER BY B.Date desc;
 EOF;
         }
+
+        /*echo $blogId;
+        echo $userId;
+        echo $sql;
+        die();*/
 
         $ret = $db->query($sql);
         $result = array();
@@ -50,6 +55,7 @@ EOF;
             $result[count($result)-1][] = $row['Descr'];
             $result[count($result)-1][] = $row['UID'];
             $result[count($result)-1][] = $row['Comments'];
+            $result[count($result)-1][] = $row['ID'];
         }
 
         if (strlen($result[0][0]) == 0) {
