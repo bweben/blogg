@@ -95,6 +95,11 @@ class BlogController
         print_r($_POST);
     }
 
+    public function readById($Id) {
+        $blogModel = new BlogModel();
+        return json_encode($blogModel->read(0,$Id));
+    }
+
     function redirect($url)
     {
         $string = '<script type="text/javascript">';

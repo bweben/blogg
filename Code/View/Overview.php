@@ -25,7 +25,7 @@ EOF;
                     </p>
                   </div>
                   <div class="panel-footer">
-                    <a href="#">'.$blogs[$i][7].' Comments</a>
+                    <a onclick="loadComments('.$blogs[$i][8].')">Comments <span class="badge">'.$blogs[$i][7].'</span></a>
                   </div>
                 </div>
             </div>';

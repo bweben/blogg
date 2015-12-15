@@ -9,7 +9,7 @@ class Dispatcher
     {
         $url = explode('/', trim($_SERVER['REQUEST_URI'], '/'));
 
-        $controllerName = !empty($url[0]) ? $url[0] . 'controller' : 'LoginController';
+        $controllerName = !empty($url[0]) ? $url[0] . 'Controller' : 'LoginController';
         $method = !empty($url[1]) ? $url[1] : 'index';
         $args = array_slice($url, 2);
 		$controllerName = ucfirst($controllerName);

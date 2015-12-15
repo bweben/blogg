@@ -12,13 +12,19 @@ require_once('Database.php');
 
 class CommentsModel
 {
-    public function readComments($blogId, $userId) {
+    public function readComments($blogId, $userId = 0) {
         $db = new MyDB();
         $sql = "";
 
-        $sql =<<<EOF
+        if ($userId == 0) {
+            $sql =<<<EOF
+                    SELECT Text,Date FROM Comments WHERE BlogId = '$blogId';
+EOF;
+        } else {
+            $sql =<<<EOF
                     SELECT Text,Date FROM Comments WHERE BlogId = '$blogId' AND UserId = '$userId';
 EOF;
+        }
 
         $ret = $db->query($sql);
         $result = array();

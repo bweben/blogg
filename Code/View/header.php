@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="">
-    <meta name="author" content="">
+    <meta name="author" content="Nathanael Weber">
 
     <title><?php echo $title; ?></title>
     <!-- Bootstrap Core CSS -->
@@ -18,6 +18,7 @@
     <script src="/View/js/jquery.js"></script>
     <script src="/bootstrap/bootstrap-3.3.6-dist/js/bootstrap.min.js"></script>
     <script src="/bootstrap/bootstrap-3.3.6-dist/js/npm.js"></script>
+    <script src="/View/js/CommentsLoader.js"></script>
 </head>
 <body>
 <nav class="navbar navbar-default">
