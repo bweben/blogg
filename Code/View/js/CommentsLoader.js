@@ -16,7 +16,7 @@ function setCommentsView(data) {
     });
     commentsDiv.append('<a class="list-group-item">');
     commentsDiv.append('<div class="list-group-item-text">');
-    commentsDiv.append('<form action="/comments/create" method="post">');
+    commentsDiv.append('<form action="/comments/create/" method="post">');
     commentsDiv.append('<input type="text">');
     commentsDiv.append('<input type="submit" class="btn btn-primary">');
     commentsDiv.append('</div>');
