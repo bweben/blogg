@@ -1,6 +1,6 @@
 <?php
 
-require_once('model/CommentsModel.php');
+require_once('Model/CommentsModel.php');
 
 /**
  * Created by PhpStorm.
@@ -12,6 +12,6 @@ class DataCommentsController
 {
     public function read($id = 0) {
         $commentsModel = new CommentsModel();
-        return json_encode($commentsModel->readComments($id,0));
+        echo json_encode($commentsModel->readComments($id,0));
     }
 }

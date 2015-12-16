@@ -1,6 +1,7 @@
 <?php
 
 require_once('lib/Model.php');
+require_once('Model/LoginModel.php');
 require_once('Database.php');
 
 /**
@@ -14,25 +15,34 @@ class CommentsModel
 {
     public function readComments($blogId, $userId = 0) {
         $db = new MyDB();
-        $sql = "";
+        $loginModel = new LoginModel();
+        $st = "";
 
         if ($userId == 0) {
             $sql =<<<EOF
-                    SELECT Text,Date FROM Comments WHERE BlogId = '$blogId';
+                    SELECT Text,Date,UserId as User FROM Comments WHERE BlogId = ?;
 EOF;
+            $st = $db->prepare($sql);
+            $st->bindParam(1,$blogId);
+
         } else {
             $sql =<<<EOF
-                    SELECT Text,Date FROM Comments WHERE BlogId = '$blogId' AND UserId = '$userId';
+                    SELECT Text,Date,UserId as User FROM Comments WHERE BlogId = ? AND UserId = ?;
 EOF;
+            $st = $db->prepare($sql);
+            $st->bindParam(1,$blogId);
+            $st->bindParam(2,$userId);
         }
 
-        $ret = $db->query($sql);
+        $ret = $st->execute();
         $result = array();
 
         while($row = $ret->fetchArray(SQLITE3_ASSOC)) {
             $result[] = array();
             $result[count($result)-1][] = $row['Text'];
             $result[count($result)-1][] = $row['Date'];
+            $result[count($result)-1][] = $row['User'];
+            $result[count($result)-1][] = $loginModel->readById($row['User'])[2];
         }
 
         $db->close();

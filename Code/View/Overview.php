@@ -26,6 +26,8 @@ EOF;
                   </div>
                   <div class="panel-footer">
                     <a onclick="loadComments('.$blogs[$i][8].')">Comments <span class="badge">'.$blogs[$i][7].'</span></a>
+                    <div id="comments'.$blogs[$i][8].'">
+                    </div>
                   </div>
                 </div>
             </div>';

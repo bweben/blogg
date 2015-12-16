@@ -11,6 +11,28 @@ require_once('Database.php');
  */
 class LoginModel
 {
+    public function readById($id) {
+        $db = new MyDB();
+        $st = "";
+
+        $sql =<<<EOF
+                SELECT * FROM USERS WHERE ID = ?;
+EOF;
+        $st = $db->prepare($sql);
+        $st->bindParam(1,$id);
+        $ret = $st->execute();
+        $result = array();
+
+        while($row = $ret->fetchArray(SQLITE3_ASSOC)) {
+            $result[] = $row['ID'];
+            $result[] = $row['Email'];
+            $result[] = $row['Nickname'];
+            $result[] = $row['Admin'];
+        }
+
+        $db->close();
+        return $result;
+    }
 
     public function create($email, $password,$nick = "")
     {

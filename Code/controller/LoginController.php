@@ -1,6 +1,6 @@
 <?php
 
-require_once('model/LoginModel.php');
+require_once('Model/LoginModel.php');
 
 /**
  * Created by PhpStorm.

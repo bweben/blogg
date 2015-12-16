@@ -1,6 +1,6 @@
 <?php
 
-require_once('model/CommentsModel.php');
+require_once('Model/CommentsModel.php');
 
 /**
  * Created by PhpStorm.
