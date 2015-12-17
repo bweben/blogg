@@ -1,7 +1,7 @@
 <?php
 
 require_once('model/BlogModel.php');
-require_once('model/CategorieModel.php');
+require_once('model/CategoryModel.php');
 require_once('model/CommentsModel.php');
 
 /**
@@ -68,7 +68,7 @@ class BlogController
 
     public function doCreate() {
         $blogModel = new BlogModel();
-        $categorieModel = new CategorieModel();
+        $categorieModel = new CategoryModel();
 
         $categorieId = $categorieModel->getId($_POST['categorieId']);
 

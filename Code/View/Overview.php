@@ -23,8 +23,14 @@ EOF;
             echo "<p>Create a new Blog by sign in first <a href='/'>here</a>.</p>";
         }
 
+        $html = "";
+        $categories = array();
         for($i = 0; $i < count($blogs);$i ++) {
-            echo '
+            if (!in_array($blogs[$i][5],$categories)) {
+                $categories[] = array($blogs[$i][5],$blogs[$i][9]);
+            }
+
+            $html.='
             <div class="bs-component">
                 <div class="panel panel-default">
                   <div class="panel-heading"><a href="/Blog/read/'.$blogs[$i][8].'">'.$blogs[$i][0].'</a> by: <a href="/Blog/index/'.$blogs[$i][6].'">'.$blogs[$i][4].'</a></div>
@@ -41,5 +47,15 @@ EOF;
                 </div>
             </div>';
 
-        } ?>
+        }
+
+        echo '<h2>Categories</h2>';
+        foreach($categories as $category) {
+            echo '<a style="padding: 0 2px" href="/category/index/'.$category[1].'"><span class="label label-default">'.$category[0].'</span></a>';
+        }
+
+        echo '<h2>Blogs</h2>';
+        echo $html;
+
+        ?>
     </div>
