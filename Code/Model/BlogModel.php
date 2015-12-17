@@ -14,23 +14,28 @@ class BlogModel extends Model
 {
     public function read($userId = 0,$blogId = 0) {
         $db = new MyDB();
-        $sql = "";
+        $st = "";
 
         if ($blogId != 0) {
             $sql = <<<EOF
-                        SELECT B.Titel as Titel, B.Text as Text, B.Date as Date, U.Email as Email, U.Nickname as Nick, C.Description as Descr, U.ID as UID, count(Co.ID) as Comments, B.ID as ID
-                        FROM Blog as B JOIN Users as U ON B.UserId = U.ID JOIN Categorie as C ON B.CategorieID = C.ID LEFT JOIN Comments as Co ON B.ID = Co.BlogID GROUP BY B.ID WHERE B.ID = '$blogId' ORDER BY B.Date desc;
+                        SELECT B.Titel as Titel, B.Text as Text, B.Date as Date, U.Email as Email, U.Nickname as Nick, C.Description as Descr, U.ID as UID, count(Co.ID) as Comments, B.ID as ID, C.ID as CID
+                        FROM Blog as B JOIN Users as U ON B.UserId = U.ID JOIN Categorie as C ON B.CategorieID = C.ID LEFT JOIN Comments as Co ON B.ID = Co.BlogID WHERE B.ID = ? ORDER BY B.Date desc;
 EOF;
-        } elseif ($userId == 0) {
+            $st = $db->prepare($sql);
+            $st->bindParam(1,$blogId);
+        } elseif ($userId == 0 && $blogId == 0) {
             $sql = <<<EOF
-                        SELECT B.Titel as Titel, B.Text as Text, B.Date as Date, U.Email as Email, U.Nickname as Nick, C.Description as Descr, U.ID as UID, count(Co.ID) as Comments, B.ID as ID
+                        SELECT B.Titel as Titel, B.Text as Text, B.Date as Date, U.Email as Email, U.Nickname as Nick, C.Description as Descr, U.ID as UID, count(Co.ID) as Comments, B.ID as ID, C.ID as CID
                         FROM Blog as B JOIN Users as U ON B.UserId = U.ID JOIN Categorie as C ON B.CategorieID = C.ID LEFT JOIN Comments as Co ON B.ID = Co.BlogID GROUP BY B.ID ORDER BY B.Date desc;
 EOF;
+            $st = $db->prepare($sql);
         } else {
             $sql = <<<EOF
-                        SELECT B.Titel as Titel, B.Text as Text, B.Date as Date, U.Email as Email, U.Nickname as Nick, C.Description as Descr, U.ID as UID, count(Co.ID) as Comments, B.ID as ID
-                        FROM Blog as B JOIN Users as U ON B.UserId = U.ID JOIN Categorie as C ON B.CategorieID = C.ID LEFT JOIN Comments as Co ON B.ID = Co.BlogID WHERE U.ID = '$userId' GROUP BY B.ID ORDER BY B.Date desc;
+                        SELECT B.Titel as Titel, B.Text as Text, B.Date as Date, U.Email as Email, U.Nickname as Nick, C.Description as Descr, U.ID as UID, count(Co.ID) as Comments, B.ID as ID, C.ID as CID
+                        FROM Blog as B JOIN Users as U ON B.UserId = U.ID JOIN Categorie as C ON B.CategorieID = C.ID LEFT JOIN Comments as Co ON B.ID = Co.BlogID WHERE U.ID = ? GROUP BY B.ID ORDER BY B.Date desc;
 EOF;
+            $st = $db->prepare($sql);
+            $st->bindParam(1,$userId);
         }
 
         /*echo $blogId;
@@ -38,7 +43,7 @@ EOF;
         echo $sql;
         die();*/
 
-        $ret = $db->query($sql);
+        $ret = $st->execute();
         $result = array();
 
         if (!$ret) {
@@ -56,6 +61,7 @@ EOF;
             $result[count($result)-1][] = $row['UID'];
             $result[count($result)-1][] = $row['Comments'];
             $result[count($result)-1][] = $row['ID'];
+            $result[count($result)-1][] = $row['CID'];
         }
 
         if (strlen($result[0][0]) == 0) {
@@ -135,5 +141,25 @@ EOF;
     public function readById($id)
     {
 
+    }
+
+    public function update($id, $blogName, $blogText, $categorieId)
+    {
+        $db = new MyDB();
+        $st = "";
+
+        $sql =<<<EOF
+                UPDATE Blog SET Titel = ?, Text = ?, CategorieID = ? WHERE ID = ?;
+EOF;
+        $st = $db->prepare($sql);
+        $st->bindParam(1,$blogName);
+        $st->bindParam(2,$blogText);
+        $st->bindParam(3,$categorieId);
+        $st->bindParam(4,$id);
+        $ret = $st->execute();
+        if (!$ret) {
+            echo $db->lastErrorMsg();
+        }
+        $db->close();
     }
 }

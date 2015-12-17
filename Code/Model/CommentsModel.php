@@ -20,14 +20,14 @@ class CommentsModel
 
         if ($userId == 0) {
             $sql =<<<EOF
-                    SELECT Text,Date,UserId as User FROM Comments WHERE BlogId = ?;
+                    SELECT Text,Date,UserId as User,ID FROM Comments WHERE BlogId = ?;
 EOF;
             $st = $db->prepare($sql);
             $st->bindParam(1,$blogId);
 
         } else {
             $sql =<<<EOF
-                    SELECT Text,Date,UserId as User FROM Comments WHERE BlogId = ? AND UserId = ?;
+                    SELECT Text,Date,UserId as User,ID FROM Comments WHERE BlogId = ? AND UserId = ?;
 EOF;
             $st = $db->prepare($sql);
             $st->bindParam(1,$blogId);
@@ -43,6 +43,7 @@ EOF;
             $result[count($result)-1][] = $row['Date'];
             $result[count($result)-1][] = $row['User'];
             $result[count($result)-1][] = $loginModel->readById($row['User'])[2];
+            $result[count($result)-1][] = $row['ID'];
         }
 
         $db->close();

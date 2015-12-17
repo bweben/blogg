@@ -25,14 +25,16 @@ class CommentsController
         $view->display();
     }
 
-    public function create($text,$blogId) {
+    public function create($id) {
         $commentsModel = new CommentsModel();
-        $commentsModel->createComment($text,$blogId,$_SESSION['UserId']);
+        $commentsModel->createComment($_POST['Text'],$id,$_SESSION['UserId']);
+        $this->redirect('/Blog/read/'.$id);
     }
 
     public function delete($commentId) {
         $commentsModel = new CommentsModel();
         $commentsModel->deleteComment($commentId);
+        $this->redirect('/Blog/index');
     }
 
     function redirect($url)

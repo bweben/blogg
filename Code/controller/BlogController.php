@@ -2,6 +2,7 @@
 
 require_once('model/BlogModel.php');
 require_once('model/CategorieModel.php');
+require_once('model/CommentsModel.php');
 
 /**
  * Created by PhpStorm.
@@ -55,6 +56,16 @@ class BlogController
         }
     }
 
+    public function read($id) {
+        $blogModel = new BlogModel();
+        $commentsModel = new CommentsModel();
+
+        $view = new View("OverviewOwn");
+        $view->blog = $blogModel->read(0,$id);
+        $view->comments = $commentsModel->readComments($id);
+        $view->display();
+    }
+
     public function doCreate() {
         $blogModel = new BlogModel();
         $categorieModel = new CategorieModel();
@@ -84,15 +95,20 @@ class BlogController
             $blogModel = new BlogModel();
             $blog = $blogModel->read(0,$blogId);
             $view = new View("newBlog");
-            $view->src = "/Blog/doChange";
+            $view->src = "/Blog/doChange/".$blogId;
             $view->blogName = $blog[0][0];
             $view->blogText = $blog[0][1];
+            $view->category = $blog[0][5];
             $view->display();
         }
     }
 
-    public function doChange() {
-        print_r($_POST);
+    public function doChange($id) {
+        if ($this->checkLogin()) {
+            $blogModel = new BlogModel();
+            $blogModel->update($id,$_POST['blogName'],$_POST['blogText'],$_POST['categorieId']);
+        }
+        $this->redirect('/Blog/index/');
     }
 
     public function readById($Id) {

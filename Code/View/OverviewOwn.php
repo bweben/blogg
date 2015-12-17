@@ -1,19 +1,41 @@
-<?php
-include_once('../Model/AllBlogs.php');
-
-$AllBlogs = new AllBlogs();
-
-$response = stripslashes(file_get_contents("../../HTML/Overview.html"));
-echo $response;
-
-$blogs = $AllBlogs->readShortOverview($_SESSION['UserId']);
-$blogsHTML = "";
-
-for($i = 0; $i < count($blogs); $i++) {
-	$blogsHTML .= "<div>" .
-	"<h2>" . $blogs[$i][0] . "</h2>" .
-	"<p>" . $blogs[$i][1] . "</p>" .
-	"</div>";
+<div class="container">
+    <div class="form">
+        <?php if(isset($_SESSION['UserId'])) {
+            if ($_SESSION['UserId'] == $blog[0][6]) {
+                echo '<a href="/Blog/change/'.$blog[0][8].'" class="btn btn-default">Change</a>';
+                echo '<a href="/Blog/delete/'.$blog[0][8].'" class="btn btn-danger">Delete</a>';
+            }
+        } ?>
+    </div>
+    <div class="form">
+        <h2><?php echo $blog[0][0]; ?></h2>
+        <p><?php echo str_replace("\n","<br>",$blog[0][1]); ?></p>
+    </div>
+</div>
+    <div class="container">
+        <h2>Comments</h2>
+        <?php
+        $commentts = "<div class=\"list-group\">";
+        for($i = 0; $i < count($comments);$i++) {
+    $commentts .='<a href="/Blog/index/'.$comments[$i][2].'" class="list-group-item">'.
+                '<h4 class="list-group-item-heading">'.$comments[$i][3].'</h4>'.
+                '<p class="list-group-item-text">'.$comments[$i][0].'</p>';
+        if($_SESSION['UserId'] == $blog[0][6]) {
+            $commentts .= '<a href="/Comments/delete/'.$comments[$i][4].'" class="btn btn-danger">Delete</a>';
+        }
+            $commentts .= '</a>';
 }
-
-echo $blogsHTML;
+        $blogId = $blog[0][8];
+        $commentts .=<<<EOF
+            <a class="list-group-item">
+            <div class="list-group-item-text">
+                <form action="/comments/create/$blogId" method="post">
+                <input name="Text" type="text">
+                <input type="submit" class="btn btn-primary">
+            </div>
+            </a>
+            </div>
+EOF;
+        echo $commentts;
+ ?>
+        </div>
