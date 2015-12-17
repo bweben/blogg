@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
-  <component name="DataSourceManagerImpl" format="xml" hash="1449739615">
+  <component name="DataSourceManagerImpl" format="xml" hash="3591924937">
     <data-source source="LOCAL" name="Sqlite (Xerial) - blog.db" uuid="3fcecc07-ad25-4ab4-8730-127d85897e49">
       <driver-ref>sqlite.xerial</driver-ref>
       <synchronize>true</synchronize>
@@ -14,6 +14,12 @@
       <jdbc-url>jdbc:sqlite:$PROJECT_DIR$/lib/blog.db</jdbc-url>
     </data-source>
     <data-source source="LOCAL" name="Sqlite (Xerial) - blog.db [3]" uuid="901a61d5-a812-4849-8f84-1fe0bcd6ca97">
+      <driver-ref>sqlite.xerial</driver-ref>
+      <synchronize>true</synchronize>
+      <jdbc-driver>org.sqlite.JDBC</jdbc-driver>
+      <jdbc-url>jdbc:sqlite:$PROJECT_DIR$/lib/blog.db</jdbc-url>
+    </data-source>
+    <data-source source="LOCAL" name="Sqlite (Xerial) - blog.db [4]" uuid="0a8136d5-05f6-4bf5-b179-61488b0b3cd4">
       <driver-ref>sqlite.xerial</driver-ref>
       <synchronize>true</synchronize>
       <jdbc-driver>org.sqlite.JDBC</jdbc-driver>

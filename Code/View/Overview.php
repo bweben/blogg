@@ -14,7 +14,16 @@ EOF;
         } ?>
     </div>
     <div class="form">
-        <?php for($i = 0; $i < count($blogs);$i ++) {
+        <?php
+        if (count($blogs) == 0) {
+            echo "<h2>There are no Blogs yet</h2>";
+        }
+
+        if (!isset($_SESSION['UserId'])) {
+            echo "<p>Create a new Blog by sign in first <a href='/'>here</a>.</p>";
+        }
+
+        for($i = 0; $i < count($blogs);$i ++) {
             echo '
             <div class="bs-component">
                 <div class="panel panel-default">

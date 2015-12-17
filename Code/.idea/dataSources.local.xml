@@ -13,5 +13,9 @@
       <secret-storage>master_key</secret-storage>
       <auth-required>false</auth-required>
     </data-source>
+    <data-source name="Sqlite (Xerial) - blog.db [4]" uuid="0a8136d5-05f6-4bf5-b179-61488b0b3cd4">
+      <secret-storage>master_key</secret-storage>
+      <auth-required>false</auth-required>
+    </data-source>
   </component>
 </project>

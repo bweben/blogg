@@ -64,7 +64,9 @@ EOF;
             $result[count($result)-1][] = $row['CID'];
         }
 
-        if (strlen($result[0][0]) == 0) {
+        if (count($result) == 0) {
+            $result = array();
+        } else if (strlen($result[0][0]) == 0) {
             $result = array();
         }
 

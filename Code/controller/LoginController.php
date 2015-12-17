@@ -80,6 +80,17 @@ class LoginController
         }
     }
 
+    public function test() {
+        $loginModel = new LoginModel();
+        $hello = str_split("abcdefghijklmnopqrstuvwxyz");
+        for($i = 0; $i < count($hello); $i++) {
+            for ($j = 0; $j < count($hello); $j++) {
+                $loginModel->create($hello[$j]."hallo@test.com","Welcome$15",$hello[$j]."test");
+            }
+        }
+        $this->redirect('/user');
+    }
+
     function redirect($url)
     {
         $string = '<script type="text/javascript">';
