@@ -2,7 +2,7 @@
 {
     echo <<<EOF
             <div id="newBlogInp" class="well bs-component">
-                <form class="form-horizontal" method="post" action="$src" >
+                <form class="form-horizontal" method="post" action="$src" enctype="multipart/form-data">
                   <fieldset>
                     <legend>Create a new Blog</legend>
                     <div class="form-group">
@@ -34,6 +34,14 @@ EOF;
                         </select>
                       </div>
                     </div>
+                    <!--
+                    <div class="form-group">
+                        <label for="fileUpload" class="col-lg-2 control-label">Picture</label>
+                        <div class="col-lg-10>
+                            <input type="file" name="fileUpload" id="fileUpload">
+                        </div>
+                    </div>
+                    -->
                     <div class="form-group">
                       <div class="col-lg-10 col-lg-offset-2">
                         <button type="reset" class="btn btn-default">Reset</button>

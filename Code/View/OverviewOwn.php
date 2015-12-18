@@ -5,7 +5,7 @@
                 echo '<a href="/Blog/change/'.$blog[0][8].'" class="btn btn-default">Change</a>';
             }
             if ($_SESSION['UserId'] == $blog[0][6] || $_SESSION['Admin']) {
-                echo '<a href="/Blog/delete/'.$blog[0][8].'" class="btn btn-danger">Delete</a>';
+                echo '<a href="/Blog/delete/'.$blog[0][8].'" class="btn btn-danger" data-dismiss="alert">Delete</a>';
             }
         } ?>
     </div>

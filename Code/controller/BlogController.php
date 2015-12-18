@@ -15,7 +15,7 @@ class BlogController
 {
     public function __construct()
     {
-        $view = new View('header', array('title' => 'Blog', 'heading' => 'Blog'));
+        $view = new View('header', array('title' => 'Blog - Overview', 'heading' => 'Blog'));
         $view->display();
     }
 
