@@ -1,5 +1,7 @@
-<?php if(isset($_SESSION['UserId'])) {echo <<<EOF
-<div id="newBlogInp" class="well bs-component">
+<?php if(isset($_SESSION['UserId']))
+{
+    echo <<<EOF
+            <div id="newBlogInp" class="well bs-component">
                 <form class="form-horizontal" method="post" action="$src" >
                   <fieldset>
                     <legend>Create a new Blog</legend>
@@ -20,11 +22,15 @@
                       <label for="categorie" class="col-lg-2 control-label">Categorie</label>
                       <div class="col-lg-10">
                         <select class="form-control" id="categorie" name="categorieId">
-                          <option>Food</option>
-                          <option>Art</option>
-                          <option>Sport</option>
-                          <option>Nature</option>
-                          <option>Work</option>
+EOF;
+    foreach($categories as $cat) {
+        if (isset($category) && $category == $cat) {
+            echo '<option selected>'.$cat.'</option>';
+        } else {
+            echo '<option>'.$cat.'</option>';
+        }
+    }
+    echo <<<EOF
                         </select>
                       </div>
                     </div>
@@ -38,4 +44,5 @@
                 </form>
            </div>
 EOF;
+
 } ?>

@@ -22,6 +22,7 @@ class CategoryController
     public function index($id) {
         $view = new View("Overview");
         $view->blogs = $this->categoryModel->read($id);
+        $view->category = $id;
         $view->newBlog = "Create new Blog";
         $view->display();
     }

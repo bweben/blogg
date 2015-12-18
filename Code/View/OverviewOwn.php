@@ -28,6 +28,10 @@
         }
             $commentts .= '</a>';
 }
+        if ($_SESSION['UserId'] == $blog[0][6] && count($comments) == 0) {
+            $commentts.="<p>No comments yet.</p>";
+        }
+
         if ($_SESSION['UserId'] != $blog[0][6]) {
             $blogId = $blog[0][8];
             $commentts .=<<<EOF

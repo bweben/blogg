@@ -46,10 +46,12 @@ class BlogController
 
     public function create() {
         if ($this->checkLogin()) {
+            $categoryModel = new CategoryModel();
             $view = new View("newBlog");
             $view->src = "/Blog/doCreate";
             $view->blogName = "";
             $view->blogText = "";
+            $view->categories = $categoryModel->readAll();
             $view->display();
         } else {
             $this->redirect('/');
@@ -73,7 +75,7 @@ class BlogController
         $categorieId = $categorieModel->getId($_POST['categorieId']);
 
         if ($this->checkLogin()) {
-            if ($_POST['blogName'] != "") {
+            if ($_POST['blogName'] != "" && $_POST['blogText'] != "" && $categorieId != "") {
                 $blogModel->createBlog($_SESSION['UserId'],$_POST['blogName'],$_POST['blogText'],
                     $categorieId);
             }
@@ -93,22 +95,25 @@ class BlogController
     public function change($blogId) {
         if ($this->checkLogin()) {
             $blogModel = new BlogModel();
+            $categoryModel = new CategoryModel();
             $blog = $blogModel->read(0,$blogId);
             $view = new View("newBlog");
             $view->src = "/Blog/doChange/".$blogId;
             $view->blogName = $blog[0][0];
             $view->blogText = $blog[0][1];
             $view->category = $blog[0][5];
+            $view->categories = $categoryModel->readAll();
             $view->display();
         }
     }
 
     public function doChange($id) {
         if ($this->checkLogin()) {
+            $categoryModel = new CategoryModel();
             $blogModel = new BlogModel();
-            $blogModel->update($id,$_POST['blogName'],$_POST['blogText'],$_POST['categorieId']);
+            $blogModel->update($id,$_POST['blogName'],$_POST['blogText'],$categoryModel->getId($_POST['categorieId']));
         }
-        $this->redirect('/Blog/index/');
+        $this->redirect('/Blog/read/'.$id);
     }
 
     public function readById($Id) {

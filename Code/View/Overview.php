@@ -30,13 +30,14 @@ EOF;
                 $categories[] = array($blogs[$i][5],$blogs[$i][9]);
             }
 
+            $text = strlen($blogs[$i][1]) > 50 ? substr($blogs[$i][1],0,50).'...' : substr($blogs[$i][1],0,strlen($blogs[$i][1]));
             $html.='
             <div class="bs-component">
                 <div class="panel panel-default">
                   <div class="panel-heading"><a href="/Blog/read/'.$blogs[$i][8].'">'.$blogs[$i][0].'</a> by: <a href="/Blog/index/'.$blogs[$i][6].'">'.$blogs[$i][4].'</a></div>
                   <div class="panel-body">
                     <p>
-                        '.$blogs[$i][1].'
+                        '.$text.'
                     </p>
                   </div>
                   <div class="panel-footer">
@@ -50,8 +51,12 @@ EOF;
         }
 
         echo '<h2>Categories</h2>';
-        foreach($categories as $category) {
-            echo '<a style="padding: 0 2px" href="/category/index/'.$category[1].'"><span class="label label-default">'.$category[0].'</span></a>';
+        if (isset($category)) {
+            echo '<a style="padding: 0 2px" href="/blog"><span class="label label-primary">All</span></a>';
+        }
+
+        foreach($categories as $cat) {
+            echo '<a style="padding: 0 2px" href="/category/index/'.$cat[1].'"><span class="label label-default">'.$cat[0].'</span></a>';
         }
 
         echo '<h2>Blogs</h2>';

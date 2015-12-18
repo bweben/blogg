@@ -49,7 +49,7 @@ EOF;
     }
 
     public function getId($categorie) {
-        $this->chechEntities();
+        $this->checkEntities();
         $db = new MyDB();
         $sql =<<<EOF
             SELECT ID FROM Categorie WHERE Description LIKE "$categorie";
@@ -65,7 +65,7 @@ EOF;
         return $result[0];
     }
 
-    public function chechEntities() {
+    public function checkEntities() {
         $db = new MyDB();
         $sql =<<<EOF
             SELECT count(ID) as Co FROM Categorie;
@@ -88,5 +88,22 @@ EOF;
 
         }
         $db->close();
+    }
+
+    public function readAll()
+    {
+        $db = new MyDB();
+        $sql =<<<EOF
+                SELECT Description FROM Categorie;
+EOF;
+        $st = $db->prepare($sql);
+        $ret = $st->execute();
+        $result = array();
+        while($row = $ret->fetchArray(SQLITE3_ASSOC)) {
+            $result[] = $row['Description'];
+        }
+        $db->close();
+
+        return $result;
     }
 }

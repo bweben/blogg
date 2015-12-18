@@ -66,7 +66,6 @@ class LoginController
             $nick = $_GET['nickName'];
 
             if ($password1 == $password2 && !$loginModel->exists($email,$nick)) {
-                $userId = 0;
                 $userId = $loginModel->create($email,$password1,$nick);
 
                 if ($userId != 0) {
