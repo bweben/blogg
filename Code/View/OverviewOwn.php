@@ -28,17 +28,22 @@
         }
             $commentts .= '</a>';
 }
-        $blogId = $blog[0][8];
-        $commentts .=<<<EOF
-            <a class="list-group-item">
-            <div class="list-group-item-text">
-                <form action="/comments/create/$blogId" method="post">
-                <input name="Text" type="text">
-                <input type="submit" class="btn btn-primary btn-sm">
-            </div>
-            </a>
+        if ($_SESSION['UserId'] != $blog[0][6]) {
+            $blogId = $blog[0][8];
+            $commentts .=<<<EOF
+                <a class="list-group-item">
+                <div class="list-group-item-text">
+                    <form action="/comments/create/$blogId" method="post">
+                    <input name="Text" type="text">
+                    <input type="submit" class="btn btn-primary btn-sm">
+                </div>
+                </a>
             </div>
 EOF;
+        } else {
+            $commentts.='</div>';
+        }
+
         echo $commentts;
  ?>
         </div>

@@ -11,6 +11,32 @@ require_once('Database.php');
  */
 class LoginModel
 {
+    public function exists($email,$nick){
+        $email = htmlspecialchars($email);
+        $nick = htmlspecialchars($nick);
+
+        $db = new MyDB();
+        $st = "";
+
+        $sql =<<<EOF
+                SELECT * FROM USERS WHERE Email LIKE ? OR Nickname LIKE ?;
+EOF;
+        $st = $db->prepare($sql);
+        $st->bindParam(1,$email);
+        $st->bindParam(2,$nick);
+        $ret = $st->execute();
+        $result = array();
+        while($row = $ret->fetchArray(SQLITE3_ASSOC)) {
+            $result[] = $row['ID'];
+            $result[] = $row['Email'];
+            $result[] = $row['Nickname'];
+            $result[] = $row['Admin'];
+        }
+
+        $db->close();
+        return count($result) > 0;
+    }
+
     public function readById($id) {
         $db = new MyDB();
         $st = "";
@@ -37,7 +63,7 @@ EOF;
     public function create($email, $password,$nick = "")
     {
         $email = htmlspecialchars($email);
-        $nickname = $nick != "" ? $nick : $email;
+        $nickname = $nick != "" ? htmlspecialchars($nick) : $email;
         $admin = 0;
         $password2 = md5($password);
 
