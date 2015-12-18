@@ -16,7 +16,7 @@ EOF;
     <div class="form">
         <?php
         if (count($blogs) == 0) {
-            echo "<h2>There are no Blogs yet</h2>";
+            echo "<p>There are no Blogs yet...</p>";
         }
 
         if (!isset($_SESSION['UserId'])) {

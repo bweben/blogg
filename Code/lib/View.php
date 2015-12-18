@@ -2,6 +2,7 @@
 
 // make the views on the page like the mainpage because without that
 // the user can't see anything
+// imported from an older project
 class View
 {
     private $viewfile = null;

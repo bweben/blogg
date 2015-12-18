@@ -8,6 +8,7 @@ require_once('Database.php');
  * User: Nathanael
  * Date: 12/10/2015
  * Time: 8:38 AM
+ * Handles all data requests of the Blog
  */
 
 class BlogModel extends Model
@@ -142,7 +143,7 @@ EOF;
 
     public function readById($id)
     {
-
+        return $this->read(0,$id);
     }
 
     public function update($id, $blogName, $blogText, $categorieId)

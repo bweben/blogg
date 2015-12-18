@@ -7,15 +7,23 @@ require_once('Model/LoginModel.php');
  * User: Nathanael
  * Date: 12/3/2015
  * Time: 8:34 AM
+ * Handles all things which are Login / logout relevanted
  */
 class LoginController
 {
+    /**
+     * LoginController constructor.
+     * creates the header
+     */
     public function __construct()
     {
         $view = new View('header',array('title' => 'Login', 'heading' => 'Login'));
         $view->display();
     }
 
+    /**
+     * creates the login/signup window if user not logged in
+     */
     public function index()
     {
         if (isset($_SESSION['UserId'])) {
@@ -26,6 +34,9 @@ class LoginController
         $view->display();
     }
 
+    /**
+     * makes a login
+     */
     public function login() {
         $loginModel = new LoginModel();
 
@@ -51,11 +62,17 @@ class LoginController
         }
     }
 
+    /**
+     * makes a logout and destroys the session
+     */
     public function logout() {
         session_destroy();
         $this->redirect('/');
     }
 
+    /**
+     * creates a user
+     */
     public function create() {
         $loginModel = new LoginModel();
 
@@ -81,6 +98,11 @@ class LoginController
         }
     }
 
+    /**
+     * not relevant
+     * used to test /user/index with many users
+     */
+    /*
     public function test() {
         $loginModel = new LoginModel();
         $hello = str_split("abcdefghijklmnopqrstuvwxyz");
@@ -90,8 +112,11 @@ class LoginController
             }
         }
         $this->redirect('/user');
-    }
+    }*/
 
+    /**
+     * @param $url
+     */
     function redirect($url)
     {
         $string = '<script type="text/javascript">';
@@ -101,6 +126,9 @@ class LoginController
         echo $string;
     }
 
+    /**
+     * creates the footer
+     */
     public function __destruct()
     {
         $view = new View('footer');

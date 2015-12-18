@@ -9,16 +9,26 @@ require_once('model/CommentsModel.php');
  * User: Nathanael
  * Date: 12/10/2015
  * Time: 8:38 AM
+ * handles all things with Blogs like create / delete and more
  */
 
 class BlogController
 {
+    /**
+     * BlogController constructor.
+     * creates the header with params
+     */
     public function __construct()
     {
         $view = new View('header', array('title' => 'Blog - Overview', 'heading' => 'Blog'));
         $view->display();
     }
 
+    /**
+     * @return bool
+     * checks if User is logged in,
+     * else go to /Blog/index
+     */
     public function checkLogin() {
         if (isset($_SESSION['UserId'])) {
             return true;
@@ -28,14 +38,29 @@ class BlogController
         }
     }
 
+    /**
+     * @param $userId
+     * @return bool
+     * checks if user has permission to delete
+     */
     public function checkPermissionDel($userId) {
         return $_SESSION['UserId'] == $userId || $_SESSION['Admin'];
     }
 
+    /**
+     * @param $userId
+     * @return bool
+     * checks if user has permission to change
+     */
     public function checkPermissionCha($userId) {
         return $_SESSION['UserId'] == $userId;
     }
 
+    /**
+     * @param int $userId
+     * makes the Overview of all Blogs or
+     * limited by the user
+     */
     public function index($userId = 0) {
         $blogModel = new BlogModel();
         $view = new View("Overview");
@@ -44,6 +69,9 @@ class BlogController
         $view->display();
     }
 
+    /**
+     * Creates a new Blog View
+     */
     public function create() {
         if ($this->checkLogin()) {
             $categoryModel = new CategoryModel();
@@ -58,6 +86,11 @@ class BlogController
         }
     }
 
+    /**
+     * @param $id
+     * Reads a Blog where the id is set
+     * Gives a better view of the blog
+     */
     public function read($id) {
         $blogModel = new BlogModel();
         $commentsModel = new CommentsModel();
@@ -68,6 +101,9 @@ class BlogController
         $view->display();
     }
 
+    /**
+     * Creates the Blog
+     */
     public function doCreate() {
         $blogModel = new BlogModel();
         $categorieModel = new CategoryModel();
@@ -85,16 +121,25 @@ class BlogController
         $this->redirect('/Blog');
     }
 
+    /**
+     * @param $blogId
+     * deletes a Blog by the blogid
+     */
     public function delete($blogId) {
-        if ($this->checkLogin()) {
-            $blogModel = new BlogModel();
+        $blogModel = new BlogModel();
+        if ($this->checkLogin() && $this->checkPermissionDel($blogModel->readById($blogId)[0][6])) {
             $blogModel->deleteBlog($blogId);
+            $this->redirect('/');
         }
     }
 
+    /**
+     * @param $blogId
+     * Uses the new Blog View to change a Blog
+     */
     public function change($blogId) {
-        if ($this->checkLogin()) {
-            $blogModel = new BlogModel();
+        $blogModel = new BlogModel();
+        if ($this->checkLogin() && $this->checkPermissionCha($blogModel->readById($blogId)[0][6])) {
             $categoryModel = new CategoryModel();
             $blog = $blogModel->read(0,$blogId);
             $view = new View("newBlog");
@@ -107,6 +152,10 @@ class BlogController
         }
     }
 
+    /**
+     * @param $id
+     * Changes effectifly a Blog
+     */
     public function doChange($id) {
         if ($this->checkLogin()) {
             $categoryModel = new CategoryModel();
@@ -116,11 +165,21 @@ class BlogController
         $this->redirect('/Blog/read/'.$id);
     }
 
+    /**
+     * @param $Id
+     * @return string
+     * used for ajax to give the values of e specific blog
+     */
     public function readById($Id) {
         $blogModel = new BlogModel();
         return json_encode($blogModel->read(0,$Id));
     }
 
+    /**
+     * @param $url
+     * only commented here
+     * changes the url of the site to make a redirect to a specific url
+     */
     function redirect($url)
     {
         $string = '<script type="text/javascript">';
@@ -130,6 +189,17 @@ class BlogController
         echo $string;
     }
 
+    /**
+     * is called when url isn't valid
+     */
+    public function notfound() {
+        $view = new View('404');
+        $view->display();
+    }
+
+    /**
+     * Creates the footer
+     */
     public function __destruct()
     {
         $view = new View('footer');
