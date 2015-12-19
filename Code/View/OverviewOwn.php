@@ -20,8 +20,8 @@
         } ?>
     </div>
     <div class="form">
-        <h2><?php echo $blog[0][0]; ?></h2>
-
+        <h3 style="margin-bottom: 0" ><?php echo $blog[0][0]; ?></h3>
+        <p style="font-size: 11px">by <a href="/blog/index/<?php echo $blog[0][6]; ?>"><?php echo $blog[0][4];?></a></p>
         <p><?php echo str_replace("\n","<br>",$blog[0][1]); ?></p>
     </div>
 </div>

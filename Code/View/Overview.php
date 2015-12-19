@@ -74,3 +74,17 @@ EOF;
 
         ?>
     </div>
+    <?php if ((isset($more) && isset($page)) && ($more || $page != 0)) {
+        echo '<ul class="pager">';
+        echo '<li class="previous ';
+        if ($page == 0) { echo "disabled";}
+        echo '"><a href="/blog/index/';
+        echo $user."/".($page - 1);
+        echo '">&larr; Newer</a></li>';
+        echo '<li class="next ';
+        if (!$more) {echo "disabled";}
+        echo '"><a href="/blog/index/';
+        echo $user."/".($page + 1);
+        echo '">Older &rarr;</a></li>';
+        echo '</ul>';
+    } ?>
