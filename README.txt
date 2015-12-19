@@ -1,17 +1,21 @@
-8888888b.  8888888888        d8888 8888888b.  888b     d888 8888888888 
-888   Y88b 888              d88888 888  "Y88b 8888b   d8888 888        
-888    888 888             d88P888 888    888 88888b.d88888 888        
-888   d88P 8888888        d88P 888 888    888 888Y88888P888 8888888    
-8888888P"  888           d88P  888 888    888 888 Y888P 888 888        
-888 T88b   888          d88P   888 888    888 888  Y8P  888 888        
-888  T88b  888         d8888888888 888  .d88P 888   "   888 888        
-888   T88b 8888888888 d88P     888 8888888P"  888       888 8888888888 
-----------------------------------------------------------------------
+# Web Blog
+* Brauchen Sie Chrome zum Testen
 
-Vorgehen:
-1. Das Projekt in einen Ordner kopieren.
-2. In Apache das File http.conf öffnen und folgendes an Datei Ende einfügen,
-[Pfad] mit dem Pfad ersetzen, indem der Ordner Code vom Projekt gespeichert ist.
+## Installation
+1. Kopieren Sie das Projekt in irgendeinen Pfad
+2. Kopieren Sie den Projekt Pfad
+
+### Downloads
+1. Apache herunterladen (https://www.apachefriends.org/xampp-files/5.6.15/xampp-win32-5.6.15-1-VC11-installer.exe)
+2. Apache konfigurieren
+
+### Apache Configuration
+1. Apache starten
+2. Auf Config klicken -> httpd.conf
+3. DocumentRoot suchen und ins 2. Ergebnis der Pfad vom Projekt einfügen
+4. WorkingDirectory, direkt darunter, aufsuchen und ebenfalls der Pfad vom Projekt als Pfad einfügen.
+5. Folgendes ans Datei Ende einfügen
+
 
 <VirtualHost 127.0.0.1>
     ServerName www.blog.local
@@ -19,9 +23,9 @@ Vorgehen:
     AddType text/html .shtml
     AddHandler server-parsed .shtml
     ServerAdmin webmaster@mvc.local
-    DocumentRoot "[Pfad]"
+    DocumentRoot "[Path]"
 
-    <Directory "[Pfad]">
+    <Directory "[Path]">
         Options Indexes FollowSymLinks
         Options +Includes
         AllowOverride All
@@ -32,24 +36,39 @@ Vorgehen:
     </Directory>
 </VirtualHost>
 
-3. In der http.conf Datei ca. in der Mitte bei folgendem den Pfad eingeben,
-wo sich der Ordner Code vom Projekt befindet.
 
-DocumentRoot "[Pfad]"
-<Directory "[Pfad]">
+6. Der Projekt Pfad dort schreiben, wo [Pfad] steht.
+7. Apache neustarten
 
------------------------------------------------------------------------------
+## Benutzer
+### Standard
+* iet-gibb@test.ch
 
-Bei Fragen:
-1. Fehleranalyse durchführen.
-2. Google verwenden.
-3. Mich anfragen.
+### Administrator
+* iet-admin@test.ch
 
---   __      ___      _              _____              _    
---   \ \    / (_)    | |            |  __ \            | |   
---    \ \  / / _  ___| | ___ _ __   | |  | | __ _ _ __ | | __
---     \ \/ / | |/ _ \ |/ _ \ '_ \  | |  | |/ _` | '_ \| |/ /
---      \  /  | |  __/ |  __/ | | | | |__| | (_| | | | |   < 
---       \/   |_|\___|_|\___|_| |_| |_____/ \__,_|_| |_|_|\_\
---                                                           
---                                                           
+## Anleitung
+* Mit einem von den oberen Nutzern anmelden, das Passwort ist: Welcome$15
+
+### Benutzer einloggen
+* Email und Passwort ausfüllen
+* Senden drücken
+
+### Benutzer erstellen
+* Alle Felder ausfüllen
+* Senden drücken
+
+### Blog Eintrag erstellen
+* Auf der Startseite "Create Blog Entity" drücken.
+* Alle Felder ausfüllen
+
+### Nach Kategorien limitieren
+* Eine Kategorie klicken
+* Um zurück zu kommen, All klicken
+
+### Benutzer Übersicht
+* Auf "User Overview" klicken
+
+### Abmelden
+* Auf Ihre Email oben rechts klicken
+* "Logout" klicken             

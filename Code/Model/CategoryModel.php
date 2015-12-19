@@ -23,7 +23,7 @@ class CategoryModel
         $st = "";
         $sql =<<<EOF
                 SELECT B.Titel as Titel, B.Text as Text, B.Date as Date, U.Email as Email, U.Nickname as Nick, C.Description as Descr, U.ID as UID, count(Co.ID) as Comments, B.ID as ID, C.ID as CID
-                        FROM Blog as B JOIN Users as U ON B.UserId = U.ID JOIN Categorie as C ON B.CategorieID = C.ID LEFT JOIN Comments as Co ON B.ID = Co.BlogID WHERE CID = ? ORDER BY B.Date desc;
+                        FROM Blog as B JOIN Users as U ON B.UserId = U.ID JOIN Categorie as C ON B.CategorieID = C.ID LEFT JOIN Comments as Co ON B.ID = Co.BlogID WHERE CID = ? GROUP BY B.ID ORDER BY B.Date desc;
 EOF;
         $st = $db->prepare($sql);
         $st->bindParam(1,$id);
