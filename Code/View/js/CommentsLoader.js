@@ -18,7 +18,7 @@ function setCommentsView(data) {
             console.log("Entry"+entry);
             var comments = '<a href="/Blog/index/'+entry[2]+'" class="list-group-item">'+
                 '<h4 class="list-group-item-heading">'+entry[3]+'</h4>'+
-                '<p class="list-group-item-text">'+entry[1]+'</p>'+
+                '<p class="list-group-item-text">'+entry[0]+'</p>'+
                 '</a>';
             commentsDiv.append(comments);
             console.log("finito");

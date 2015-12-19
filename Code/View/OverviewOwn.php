@@ -32,7 +32,8 @@
         for($i = 0; $i < count($comments);$i++) {
     $commentts .='<a href="/Blog/index/'.$comments[$i][2].'" class="list-group-item">'.
                 '<h4 class="list-group-item-heading">'.$comments[$i][3].'</h4>'.
-                '<p class="list-group-item-text">'.$comments[$i][0].'</p>';
+                '<p class="list-group-item-text">'.$comments[$i][0].'</p>
+                <span style="font-size:11px" class="glyphicon glyphicon-time" aria-hidden="true">'.date("G:i d.m.Y",$comments[$i][1]).'</span>';
         if($_SESSION['UserId'] == $blog[0][6] || $_SESSION['UserId'] == $comments[$i][2] || $_SESSION['Admin']) {
             $commentts .= '<a style="display: block;" href="/Comments/delete/'.$comments[$i][4].'" class="btn btn-danger btn-xs">Delete</a>';
         }
