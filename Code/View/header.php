@@ -19,6 +19,7 @@
     <script src="/View/bootstrap/bootstrap-3.3.6-dist/js/npm.js"></script>
     <script src="/View/js/CommentsLoader.js"></script>
     <script src="/View/js/messages.js"></script>
+    <script src="/View/js/validator.js"></script>
 </head>
 <body>
 <nav class="navbar navbar-default">

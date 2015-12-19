@@ -14,3 +14,34 @@ sets the form in the middle of the page
     width: 65%;
     margin: 0 auto;
 }
+
+/*
+sets the padding of new comment things
+*/
+#newComment {
+    padding-left: 0;
+}
+
+/*
+makes that delete comment wont be displayed
+*/
+#deleteComment {
+    display: none;
+    text-decoration: none;
+    color: white;
+}
+
+/*
+displays the delete button
+*/
+#commentDiv:hover #deleteComment {
+    display: inline;
+}
+
+/*
+sets the color of the delete button to red
+*/
+#deleteComment:hover {
+    color: #c9302c;
+}
+

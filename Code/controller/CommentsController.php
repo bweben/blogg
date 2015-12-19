@@ -49,10 +49,10 @@ class CommentsController
      * @param $commentId
      * deletes a comment
      */
-    public function delete($commentId) {
+    public function delete($commentId,$blogId) {
         $commentsModel = new CommentsModel();
         $commentsModel->deleteComment($commentId);
-        $this->redirect('/Blog/index');
+        $this->redirect('/blog/read/'.$blogId);
         $_SESSION['message'] = array('success','Deletd comment','You have successfully deleted a comment.');
     }
 

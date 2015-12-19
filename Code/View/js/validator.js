@@ -39,6 +39,11 @@ $(document).ready(function (){
         return sportTypes.length > 0;
     }
 
+    function nicknameValidation(nickname) {
+        var regex = /^[\d\w]{3,}$/i;
+        return regex.test(nickname);
+    }
+
     /**
      * Shows the error <p> with the error text
      * @param text
@@ -57,7 +62,7 @@ $(document).ready(function (){
      * Can be called if you want to hide the error field
      */
     function hideError() {
-        $("#error").hide();
+        $("#error").fadeOut(500);
     }
 
     /**
@@ -73,10 +78,8 @@ $(document).ready(function (){
         var password2 = $("#password2").val();
         var man = $("#gender").is(":checked");
         var woman = $("#gender2").is(":checked");
-        var sportTypes = $("input:checkbox:checked").map(function() {
-            return $(this).val();
-        }).get();
         var location = $("#location").find("option:selected").text();
+        var nickname = $("#nickName").val();
         var ret = true;
 
         if (!emailValidation(email)) {
@@ -87,7 +90,7 @@ $(document).ready(function (){
 
         // if its a sign up and not a sign in
         if (!((password2 == null || password2 == "") && man == false && woman == false
-            && email != "" && password1 != "")) {
+            && email != "" && password1 != "" && nickname != "")) {
             if (!secPasswordValidation(password1,password2)) {
                 $("#password2Lbl").css("color","red");
                 showError("'Passwort wiederholen' stimmt nicht mit 'Passwort' überein.");
@@ -97,6 +100,12 @@ $(document).ready(function (){
             if (!(man || woman)) {
                 $("#genderLbl").css("color","red");
                 showError("Sie haben kein Geschlecht ausgewählt.");
+                ret = false;
+            }
+
+            if (!nicknameValidation(nickname)) {
+                $("#nickLbl").css("color","red");
+                showError("Sie haben einen ungültigen Nicknamen gewählt.");
                 ret = false;
             }
 
