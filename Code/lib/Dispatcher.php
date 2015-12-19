@@ -11,8 +11,8 @@ class Dispatcher
      */
     public static function dispatch()
     {
-        //error_reporting(0);
-        //ini_set('display_errors',0);
+        error_reporting(0);
+        ini_set('display_errors',0);
 
         $url = explode('/', trim($_SERVER['REQUEST_URI'], '/'));
 
@@ -23,9 +23,8 @@ class Dispatcher
         require_once("controller/$controllerName.php");
         $controller = new $controllerName();
 
-        if (!call_user_func_array(array($controller, $method), $args)) {
-            //call_user_func(array('BlogController','notfound'));
-        }
+        //call_user_func(array('BlogController','notfound'));
+        call_user_func_array(array($controller, $method), $args);
 
         unset($controller);
     }

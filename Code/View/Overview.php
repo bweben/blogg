@@ -1,23 +1,23 @@
 <div class="container">
     <?php
     if (isset($_SESSION['message'])) {
-        echo '<div id="message-alert" class="alert alert-dismissible alert-'.$_SESSION['message'][0].'">';
+        echo '<div id="message-alert" class="alert alert-dismissible alert-' . $_SESSION['message'][0] . '">';
         echo '<button type="button" class="close" data-dismiss="alert">×</button>';
-        echo '<h4>'.$_SESSION['message'][1].'</h4>';
-        echo '<p>'.$_SESSION['message'][2].'</p>';
+        echo '<h4>' . $_SESSION['message'][1] . '</h4>';
+        echo '<p>' . $_SESSION['message'][2] . '</p>';
         echo '</div>';
         unset($_SESSION['message']);
     }
     ?>
     <div class="form">
-	    <?php if (isset($_SESSION['UserId'])) {
+        <?php if (isset($_SESSION['UserId'])) {
             echo <<<EOF
             <ul class="breadcrumb">
               <li class="active">Home</li>
             </ul>
            <div class="jumbotron">
-                <h1>New Blog</h1>
-                <p>Here you can create a new Blog and share your informations across the world.</p>
+                <h1>New Blog Entity</h1>
+                <p>Here you can create a new Blog Entity and share your informations across the world.</p>
                 <p><a class="btn btn-primary btn-lg" href="/Blog/create">Create</a></p>
             </div>
 EOF;
@@ -35,24 +35,24 @@ EOF;
 
         $html = "";
         $categories = array();
-        for($i = 0; $i < count($blogs);$i ++) {
-            if (!in_array(array($blogs[$i][5],$blogs[$i][9]),$categories)) {
-                $categories[] = array($blogs[$i][5],$blogs[$i][9]);
+        for ($i = 0; $i < count($blogs); $i++) {
+            if (!in_array(array($blogs[$i][5], $blogs[$i][9]), $categories)) {
+                $categories[] = array($blogs[$i][5], $blogs[$i][9]);
             }
 
-            $text = strlen($blogs[$i][1]) > 50 ? substr($blogs[$i][1],0,50).'...' : substr($blogs[$i][1],0,strlen($blogs[$i][1]));
-            $html.='
+            $text = strlen($blogs[$i][1]) > 50 ? substr($blogs[$i][1], 0, 50) . '...' : substr($blogs[$i][1], 0, strlen($blogs[$i][1]));
+            $html .= '
             <div class="bs-component">
                 <div class="panel panel-default">
-                  <div class="panel-heading"><a href="/Blog/read/'.$blogs[$i][8].'">'.$blogs[$i][0].'</a> by: <a href="/Blog/index/'.$blogs[$i][6].'">'.$blogs[$i][4].'</a></div>
+                  <div class="panel-heading"><a href="/Blog/read/' . $blogs[$i][8] . '">' . $blogs[$i][0] . '</a> by: <a href="/Blog/index/' . $blogs[$i][6] . '">' . $blogs[$i][4] . '</a></div>
                   <div class="panel-body">
                     <p>
-                        '.$text.'
+                        ' . $text . '
                     </p>
                   </div>
                   <div class="panel-footer">
-                    <a onclick="loadComments('.$blogs[$i][8].')">Comments <span class="badge">'.$blogs[$i][7].'</span></a>
-                    <div id="'.$blogs[$i][8].'">
+                    <a onclick="loadComments(' . $blogs[$i][8] . ')">Comments <span class="badge">' . $blogs[$i][7] . '</span></a>
+                    <div id="' . $blogs[$i][8] . '">
                     </div>
                   </div>
                 </div>
@@ -65,8 +65,8 @@ EOF;
             echo '<a style="padding: 0 2px" href="/blog"><span class="label label-primary">All</span></a>';
         }
 
-        foreach($categories as $cat) {
-            echo '<a style="padding: 0 2px" href="/category/index/'.$cat[1].'"><span class="label label-default">'.$cat[0].'</span></a>';
+        foreach ($categories as $cat) {
+            echo '<a style="padding: 0 2px" href="/category/index/' . $cat[1] . '"><span class="label label-default">' . $cat[0] . '</span></a>';
         }
 
         echo '<h2>Blogs</h2>';
@@ -77,14 +77,18 @@ EOF;
     <?php if ((isset($more) && isset($page)) && ($more || $page != 0)) {
         echo '<ul class="pager">';
         echo '<li class="previous ';
-        if ($page == 0) { echo "disabled";}
+        if ($page == 0) {
+            echo "disabled";
+        }
         echo '"><a href="/blog/index/';
-        echo $user."/".($page - 1);
+        echo $user . "/" . ($page - 1);
         echo '">&larr; Newer</a></li>';
         echo '<li class="next ';
-        if (!$more) {echo "disabled";}
+        if (!$more) {
+            echo "disabled";
+        }
         echo '"><a href="/blog/index/';
-        echo $user."/".($page + 1);
+        echo $user . "/" . ($page + 1);
         echo '">Older &rarr;</a></li>';
         echo '</ul>';
     } ?>
