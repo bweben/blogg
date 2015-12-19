@@ -50,14 +50,20 @@ class LoginController
 
             if ($userId == 0) {
                 $this->redirect('/');
+                $_SESSION['message'] = array('warning','Something happened...',
+                    'There is an internal error, please try<a href="/">again</a>.');
+
             } else {
                 $_SESSION['UserId'] = $userId;
                 $_SESSION['UserName'] = $email;
+                $_SESSION['message'] = array('success','Logged in','Yor are successfully logged in.');
 
                 $this->redirect('/Blog/index');
             }
 
         } else {
+            $_SESSION['message'] = array('warning','Something happened...',
+                'There is an internal error, please try<a href="/">again</a>.');
             $this->redirect('/');
         }
     }
@@ -88,11 +94,17 @@ class LoginController
                 if ($userId != 0) {
                     $_SESSION['UserId'] = $userId;
                     $_SESSION['UserName'] = $email;
+                    $_SESSION['message'] = array('success','Created User','Yor have successfully created an User.');
 
                     $this->redirect('/Blog/index');
+                } else {
+                    $_SESSION['message'] = array('warning','Something happened...',
+                        'There is an internal error, please try<a href="/">again</a>.');
                 }
             } else {
                 $this->redirect('/');
+                $_SESSION['message'] = array('info','Existing Username or Nick',
+                    'You have an existing email or nickname, please <a href="/">login</a> instead.');
             }
 
         }

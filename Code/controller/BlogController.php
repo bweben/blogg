@@ -34,6 +34,7 @@ class BlogController
             return true;
         } else {
             $this->redirect('/Blog/index');
+            $_SESSION['message'] = array('warning','No permission','You have no permission to do this.');
             return false;
         }
     }
@@ -58,19 +59,19 @@ class BlogController
 
     /**
      * @param int $userId
-     * makes the Overview of all Blogs or
+     * makes the Overview of all Blog Entities or
      * limited by the user
      */
     public function index($userId = 0) {
         $blogModel = new BlogModel();
         $view = new View("Overview");
         $view->blogs = $blogModel->read($userId);
-        $view->newBlog = "Create new Blog";
+        $view->newBlog = "Create new Blog Entity";
         $view->display();
     }
 
     /**
-     * Creates a new Blog View
+     * Creates a new Blog Entity View
      */
     public function create() {
         if ($this->checkLogin()) {
@@ -88,7 +89,7 @@ class BlogController
 
     /**
      * @param $id
-     * Reads a Blog where the id is set
+     * Reads a Blog Entity where the id is set
      * Gives a better view of the blog
      */
     public function read($id) {
@@ -102,7 +103,7 @@ class BlogController
     }
 
     /**
-     * Creates the Blog
+     * Creates the Blog Entity
      */
     public function doCreate() {
         $blogModel = new BlogModel();
@@ -114,6 +115,9 @@ class BlogController
             if ($_POST['blogName'] != "" && $_POST['blogText'] != "" && $categorieId != "") {
                 $blogModel->createBlog($_SESSION['UserId'],$_POST['blogName'],$_POST['blogText'],
                     $categorieId);
+                $_SESSION['message'] = array('success','Created Blog Entity','You have successfully created a Blog Entity.');
+            } else {
+                $_SESSION['message'] = array('info','Something in the Blog Creation isn\'t correct.');
             }
 
         }
@@ -123,19 +127,22 @@ class BlogController
 
     /**
      * @param $blogId
-     * deletes a Blog by the blogid
+     * deletes a Blog Entity by the blogid
      */
     public function delete($blogId) {
         $blogModel = new BlogModel();
         if ($this->checkLogin() && $this->checkPermissionDel($blogModel->readById($blogId)[0][6])) {
             $blogModel->deleteBlog($blogId);
             $this->redirect('/');
+            $_SESSION['message'] = array('success','Deleted Blog Entity','You have successfully deleted this Blog Entity.');
+        } else {
+            $_SESSION['message'] = array('warning','No permission','You have no permission to do this.');
         }
     }
 
     /**
      * @param $blogId
-     * Uses the new Blog View to change a Blog
+     * Uses the new Blog View to change a Blog Entity
      */
     public function change($blogId) {
         $blogModel = new BlogModel();
@@ -149,6 +156,8 @@ class BlogController
             $view->category = $blog[0][5];
             $view->categories = $categoryModel->readAll();
             $view->display();
+        } else {
+            $_SESSION['message'] = array('warning','No permission','You have no permission to do this.');
         }
     }
 
@@ -161,6 +170,7 @@ class BlogController
             $categoryModel = new CategoryModel();
             $blogModel = new BlogModel();
             $blogModel->update($id,$_POST['blogName'],$_POST['blogText'],$categoryModel->getId($_POST['categorieId']));
+            $_SESSION['message'] = array('success','Changed Blog Entity','You have successfully changed this Blog Entity.');
         }
         $this->redirect('/Blog/read/'.$id);
     }

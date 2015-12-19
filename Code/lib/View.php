@@ -8,6 +8,12 @@ class View
     private $viewfile = null;
     private $properties = array();
 
+    /**
+     * View constructor.
+     * @param $viewfile
+     * @param array $properties
+     * creates a View
+     */
     public function __construct($viewfile, $properties = array())
     {
         $this->properties = $properties;
@@ -18,6 +24,11 @@ class View
         }
     }
 
+    /**
+     * @param $key
+     * @param $value
+     * add a param to the view file
+     */
     public function __set($key, $value)
     {
 
@@ -26,6 +37,11 @@ class View
         }
     }
 
+    /**
+     * @param $key
+     * @return mixed
+     * returns a param from the view file
+     */
     public function __get($key)
     {
 
@@ -34,6 +50,9 @@ class View
         }
     }
 
+    /**
+     * displays the view
+     */
     public function display()
     {
 

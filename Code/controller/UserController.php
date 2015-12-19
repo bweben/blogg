@@ -38,8 +38,13 @@ class UserController
      * deletes a user
      */
     public function delete($id) {
-        $this->userModel->delete($id);
-        $this->redirect('/user');
+        if ($_SESSION['Admin']) {
+            $this->userModel->delete($id);
+            $this->redirect('/user');
+            $_SESSION['message'] = array('success','Deleted user','You have successfully deleted an user.');
+        } else {
+            $_SESSION['message'] = array('warning','No permission','You have no permission to delete this user.');
+        }
     }
 
     /**

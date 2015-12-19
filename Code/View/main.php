@@ -1,4 +1,14 @@
 <div id="form_div">
+    <?php
+    if (isset($_SESSION['message'])) {
+        echo '<div id="message-alert" class="alert alert-dismissible alert-'.$_SESSION['message'][0].'">';
+        echo '<button type="button" class="close" data-dismiss="alert">×</button>';
+        echo '<h4>'.$_SESSION['message'][1].'</h4>';
+        echo '<p>'.$_SESSION['message'][2].'</p>';
+        echo '</div>';
+        unset($_SESSION['message']);
+    }
+    ?>
     <form class="form-horizontal" method="get" action="Login/login/" id="form1">
         <fieldset>
             <legend>Anmeldung</legend>

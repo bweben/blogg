@@ -1,6 +1,7 @@
 <?php
 
 // All Models extend this model, have 3 functions for basic data management
+// isn't implemented yet
 class Model
 {
     protected $tableName = null;
@@ -8,8 +9,6 @@ class Model
     public function readById($id)
     {
         $query = "SELECT * FROM $this->tableName WHERE id=?";
-
-        //Hallo
 
         $statement = ConnectionHandler::getConnection()->prepare($query);
         $statement->bind_param('i', $id);

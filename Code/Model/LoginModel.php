@@ -8,9 +8,16 @@ require_once('Database.php');
  * User: Nathanael
  * Date: 12/3/2015
  * Time: 8:48 AM
+ * handles all data things which are related to a login or sign up
  */
 class LoginModel
 {
+    /**
+     * @param $email
+     * @param $nick
+     * @return bool
+     * checks if $email or $nick exists to avoid second sign up
+     */
     public function exists($email,$nick){
         $email = htmlspecialchars($email);
         $nick = htmlspecialchars($nick);
@@ -37,6 +44,12 @@ EOF;
         return count($result) > 0;
     }
 
+    /**
+     * @param $id
+     * @return array
+     * reads users by there id
+     * maybe isn't correct here because the better place is in the usermodel
+     */
     public function readById($id) {
         $db = new MyDB();
         $st = "";
@@ -60,6 +73,14 @@ EOF;
         return $result;
     }
 
+    /**
+     * @param $email
+     * @param $password
+     * @param string $nick
+     * @return mixed
+     * creates a user by the email, password and nickname,
+     * the gender of the person isn't important
+     */
     public function create($email, $password,$nick = "")
     {
         $email = htmlspecialchars($email);
@@ -86,11 +107,18 @@ EOF;
 
         $db->close();
 
+        //creates the session Admin entity
         $_SESSION['Admin'] = $admin == 1 ? true : false;
 
         return $this->login($email,$password);
     }
 
+    /**
+     * @param $email
+     * @param $password1
+     * @return mixed
+     * checks if the user can safely log in
+     */
     public function login($email, $password1)
     {
         $userId = 0;

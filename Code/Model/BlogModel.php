@@ -13,6 +13,12 @@ require_once('Database.php');
 
 class BlogModel extends Model
 {
+    /**
+     * @param int $userId
+     * @param int $blogId
+     * @return array
+     * reads blog entities with a specific userid or blogid given
+     */
     public function read($userId = 0,$blogId = 0) {
         $db = new MyDB();
         $st = "";
@@ -39,11 +45,6 @@ EOF;
             $st->bindParam(1,$userId);
         }
 
-        /*echo $blogId;
-        echo $userId;
-        echo $sql;
-        die();*/
-
         $ret = $st->execute();
         $result = array();
 
@@ -51,6 +52,7 @@ EOF;
             echo $db->lastErrorMsg();
         }
 
+        // goes through all rows in the query and sets the specific to an array
         while($row = $ret->fetchArray(SQLITE3_ASSOC)) {
             $result[] = array();
             $result[count($result)-1][] = $row['Titel'];
@@ -75,6 +77,11 @@ EOF;
         return $result;
     }
 
+    /**
+     * @param int $userId
+     * @return array
+     * used to read only title and date of an blog entity or blog entites
+     */
     public function readTitleDate($userId = 0) {
         $db = new MyDb();
         $sql = "";
@@ -101,6 +108,13 @@ EOF;
         return $result;
     }
 
+    /**
+     * @param $UserId
+     * @param $blogName
+     * @param $blogText
+     * @param $categorieId
+     * creates a blog entity
+     */
     public function createBlog($UserId, $blogName,$blogText,$categorieId)
     {
         $blogName = htmlspecialchars($blogName);
@@ -111,11 +125,17 @@ EOF;
         $sql = "";
 
         $sql =<<<EOF
-                    INSERT INTO BLOG (UserId,Titel,Text,Date,CategorieID) VALUES ($UserId,'$blogName',
-                    '$blogText','$dateNow',$categorieId);
+                    INSERT INTO BLOG (UserId,Titel,Text,Date,CategorieID) VALUES (?,?,
+                    ?,?,?);
 EOF;
 
-        $ret = $db->exec($sql);
+        $st = $db->prepare($sql);
+        $st->bindParam(1,$UserId);
+        $st->bindParam(2,$blogName);
+        $st->bindParam(3,$blogText);
+        $st->bindParam(4,$dateNow);
+        $st->bindParam(5,$categorieId);
+        $ret = $st->execute();
 
         if (!$ret) {
             echo $db->lastErrorMsg();
@@ -124,6 +144,10 @@ EOF;
         $db->close();
     }
 
+    /**
+     * @param $id
+     * deletes a blog
+     */
     public function deleteBlog($id) {
         $db = new MyDB();
         $sql = "";
@@ -141,11 +165,24 @@ EOF;
         $db->close();
     }
 
+    /**
+     * @param $id
+     * @return array
+     * reads a blog entity by the id
+     * calls the read method
+     */
     public function readById($id)
     {
         return $this->read(0,$id);
     }
 
+    /**
+     * @param $id
+     * @param $blogName
+     * @param $blogText
+     * @param $categorieId
+     * update method, called by the change method in the blog controller
+     */
     public function update($id, $blogName, $blogText, $categorieId)
     {
         $db = new MyDB();

@@ -42,6 +42,7 @@ class CommentsController
         $commentsModel = new CommentsModel();
         $commentsModel->createComment($_POST['Text'],$id,$_SESSION['UserId']);
         $this->redirect('/Blog/read/'.$id);
+        $_SESSION['message'] = array('success','Created comment','You have successfully created a comment.');
     }
 
     /**
@@ -52,6 +53,7 @@ class CommentsController
         $commentsModel = new CommentsModel();
         $commentsModel->deleteComment($commentId);
         $this->redirect('/Blog/index');
+        $_SESSION['message'] = array('success','Deletd comment','You have successfully deleted a comment.');
     }
 
     /**

@@ -1,4 +1,14 @@
 <div class="container">
+    <?php
+    if (isset($_SESSION['message'])) {
+        echo '<div id="message-alert" class="alert alert-dismissible alert-'.$_SESSION['message'][0].'">';
+        echo '<button type="button" class="close" data-dismiss="alert">×</button>';
+        echo '<h4>'.$_SESSION['message'][1].'</h4>';
+        echo '<p>'.$_SESSION['message'][2].'</p>';
+        echo '</div>';
+        unset($_SESSION['message']);
+    }
+    ?>
     <div class="form">
 	    <?php if (isset($_SESSION['UserId'])) {
             echo <<<EOF

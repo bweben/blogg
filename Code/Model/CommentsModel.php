@@ -9,10 +9,17 @@ require_once('Database.php');
  * User: Nathanael
  * Date: 12/10/2015
  * Time: 8:38 AM
+ * handles all data things which are related to comments
  */
 
 class CommentsModel
 {
+    /**
+     * @param $blogId
+     * @param int $userId
+     * @return array
+     * reads all comments where the comment or and userid is like the specific
+     */
     public function readComments($blogId, $userId = 0) {
         $db = new MyDB();
         $loginModel = new LoginModel();
@@ -37,6 +44,7 @@ EOF;
         $ret = $st->execute();
         $result = array();
 
+        // fetchs the result array and makes a new to return
         while($row = $ret->fetchArray(SQLITE3_ASSOC)) {
             $result[] = array();
             $result[count($result)-1][] = $row['Text'];
@@ -50,6 +58,12 @@ EOF;
         return $result;
     }
 
+    /**
+     * @param $text
+     * @param $blogId
+     * @param $UserId
+     * creates a new comment
+     */
     public function createComment($text, $blogId, $UserId)
     {
         $text = htmlspecialchars($text);
@@ -70,6 +84,10 @@ EOF;
         $db->close();
     }
 
+    /**
+     * @param $id
+     * delete a comment by his id
+     */
     public function deleteComment($id) {
         $db = new MyDB();
         $sql = "";

@@ -8,9 +8,14 @@ require_once('Database.php');
  * User: natha
  * Date: 17.12.2015
  * Time: 19:03
+ * handles all things which are related to users
  */
 class UserModel
 {
+    /**
+     * @return array
+     * reads all users to list them in /user/index
+     */
     public function readAll() {
         $db = new MyDB();
 
@@ -33,6 +38,11 @@ EOF;
         return $result;
     }
 
+    /**
+     * @param $id
+     * @return SQLite3Result
+     * deletes a user to give admins the oppurtinity to delete users
+     */
     public function delete($id) {
         $db = new MyDB();
         $st = "";

@@ -8,10 +8,16 @@ require_once('Database.php');
  * User: natha
  * Date: 17.12.2015
  * Time: 21:32
+ * handles all data things which are related to categories
  */
 
 class CategoryModel
 {
+    /**
+     * @param $id
+     * @return array
+     * reads all blogentites which have a specific category id
+     */
     public function read($id) {
         $db = new MyDB();
         $st = "";
@@ -24,6 +30,7 @@ EOF;
         $ret = $st->execute();
         $result = array();
 
+        // fetches the result to another array
         while($row = $ret->fetchArray(SQLITE3_ASSOC)) {
             $result[] = array();
             $result[count($result)-1][] = $row['Titel'];
@@ -48,6 +55,11 @@ EOF;
         return $result;
     }
 
+    /**
+     * @param $categorie
+     * @return mixed
+     * returns the id from a specific category (text)
+     */
     public function getId($categorie) {
         $this->checkEntities();
         $db = new MyDB();
@@ -65,6 +77,9 @@ EOF;
         return $result[0];
     }
 
+    /**
+     * checks if all categories are in the database
+     */
     public function checkEntities() {
         $db = new MyDB();
         $sql =<<<EOF
@@ -90,6 +105,10 @@ EOF;
         $db->close();
     }
 
+    /**
+     * @return array
+     * reads all categories
+     */
     public function readAll()
     {
         $db = new MyDB();

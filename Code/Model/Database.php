@@ -1,4 +1,9 @@
-<?php 
+<?php
+
+/**
+ * Class MyDB
+ * makes the database access
+ */
 class MyDB extends SQLite3
 {
       function __construct()
@@ -12,7 +17,10 @@ if(!$db){
 } else {
    //echo "Opened database successfully\n";
 }
-   
+
+/**
+ * creates the databse if not exists
+ */
 $sql =<<<EOF
     CREATE TABLE IF NOT EXISTS Users
              (ID INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL,
