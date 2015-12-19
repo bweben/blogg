@@ -132,7 +132,7 @@
           <file leaf-file-name="Overview.php" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/View/Overview.php">
               <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="0.6437177">
+                <state vertical-scroll-proportion="1.5800344">
                   <caret line="54" column="29" selection-start-line="54" selection-start-column="29" selection-end-line="54" selection-end-column="29" />
                   <folding>
                     <marker date="1450528621629" expanded="true" signature="1635:2325" placeholder="..." />
@@ -195,10 +195,10 @@
           <file leaf-file-name="CommentsLoader.js" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/View/js/CommentsLoader.js">
               <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="0.53212523">
-                  <caret line="23" column="39" selection-start-line="23" selection-start-column="39" selection-end-line="23" selection-end-column="39" />
+                <state vertical-scroll-proportion="0.57990116">
+                  <caret line="45" column="54" selection-start-line="45" selection-start-column="54" selection-end-line="45" selection-end-column="54" />
                   <folding>
-                    <element signature="n#!!doc;n#setCommentsView#0" expanded="false" />
+                    <element signature="n#!!doc" expanded="true" />
                   </folding>
                 </state>
               </provider>
@@ -1022,7 +1022,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/View/Overview.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.6437177">
+        <state vertical-scroll-proportion="1.5800344">
           <caret line="54" column="29" selection-start-line="54" selection-start-column="29" selection-end-line="54" selection-end-column="29" />
           <folding>
             <marker date="1450528621629" expanded="true" signature="1635:2325" placeholder="..." />
@@ -1039,10 +1039,10 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/View/js/CommentsLoader.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.53212523">
-          <caret line="23" column="39" selection-start-line="23" selection-start-column="39" selection-end-line="23" selection-end-column="39" />
+        <state vertical-scroll-proportion="0.57990116">
+          <caret line="45" column="54" selection-start-line="45" selection-start-column="54" selection-end-line="45" selection-end-column="54" />
           <folding>
-            <element signature="n#!!doc;n#setCommentsView#0" expanded="false" />
+            <element signature="n#!!doc" expanded="true" />
           </folding>
         </state>
       </provider>

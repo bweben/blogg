@@ -1,7 +1,12 @@
 /**
  * Created by natha on 15.12.2015.
+ * sets the comments in the Blog Entity Overview
  */
 
+/**
+ * sets all things up
+ * @param data
+ */
 function setCommentsView(data) {
     var blogId = data[data.length-1];
     var commentsDiv = $("#"+blogId);
@@ -23,25 +28,24 @@ function setCommentsView(data) {
             commentsDiv.append('<h4>No Comments</h4><p>Create one <a href="/blog/read/'+
                 blogId+'">here</a>!</p>')
         }
-        /*
-        commentsDiv.append('<a class="list-group-item">');
-        commentsDiv.append('<div class="list-group-item-text">');
-        commentsDiv.append('<form action="/comments/create/" method="post">');
-        commentsDiv.append('<input type="text">');
-        commentsDiv.append('<input type="submit" class="btn btn-primary">');
-        commentsDiv.append('</div>');
-        commentsDiv.append('</a>');
-        */
         commentsDiv.append('</div>')
     } else {
         commentsDiv.empty();
     }
 }
 
+/**
+ * is being called if an error exists
+ * @param data
+ */
 function errorfunc(data) {
     console.log("Error: "+data);
 }
 
+/**
+ * loads comments, when you click on the comments link
+ * @param id
+ */
 function loadComments(id) {
     $.ajax({
         type: "POST",
