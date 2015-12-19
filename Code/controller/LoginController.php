@@ -17,8 +17,38 @@ class LoginController
      */
     public function __construct()
     {
-        $view = new View('header',array('title' => 'Login', 'heading' => 'Login'));
+        $view = new View('header',array('warning' => 'Login', 'heading' => 'Login'));
         $view->display();
+    }
+
+    /**
+     * @param $email
+     * @return int
+     * validates the email
+     */
+    public function emailValidation($email) {
+        $regex = "/^([\w-]+(?:\.[\w-]+)*)@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$/i";
+        if (preg_match($regex,$email)) {
+            return true;
+        } else {
+            $_SESSION['message'] = array('danger','False email','You entered an incorrect email.');
+            return false;
+        }
+    }
+
+    /**
+     * @param $nick
+     * @return bool
+     * checks if the nickname is valid
+     */
+    public function nickValidation($nick) {
+        $regex = "/^[\d\w]{3,}$/i";
+        if (preg_match($regex,$nick)) {
+            return true;
+        } else {
+            $_SESSION['message'] = array('danger','False nickname','You entered an incorrect nickname.');
+            return false;
+        }
     }
 
     /**
@@ -30,7 +60,7 @@ class LoginController
             $this->redirect('/Blog');
         }
         $loginModel = new LoginModel();
-        $view = new View("main");
+        $view = new View("index");
         $view->display();
     }
 
@@ -88,7 +118,8 @@ class LoginController
             $password2 = $_GET['password2'];
             $nick = $_GET['nickName'];
 
-            if ($password1 == $password2 && !$loginModel->exists($email,$nick)) {
+            if ($password1 == $password2 && !$loginModel->exists($email,$nick) && $this->emailValidation($email)
+            && $this->nickValidation($nick)) {
                 $userId = $loginModel->create($email,$password1,$nick);
 
                 if ($userId != 0) {
@@ -103,8 +134,10 @@ class LoginController
                 }
             } else {
                 $this->redirect('/');
-                $_SESSION['message'] = array('info','Existing Username or Nick',
-                    'You have an existing email or nickname, please <a href="/">login</a> instead.');
+                if (!isset($_SESSION['message'])) {
+                    $_SESSION['message'] = array('info','Existing Username or Nick',
+                        'You have an existing email or nickname, please <a href="/">login</a> instead.');
+                }
             }
 
         }

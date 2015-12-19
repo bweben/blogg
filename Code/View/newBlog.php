@@ -11,6 +11,10 @@ if (isset($_SESSION['message'])) {
 <?php if(isset($_SESSION['UserId']))
 {
     echo <<<EOF
+            <ul class="breadcrumb">
+              <li><a href="/blog">Home</a></li>
+              <li class="active">create Blog Entity</li>
+            </ul>
             <div id="newBlogInp" class="well bs-component">
                 <form class="form-horizontal" method="post" action="$src" enctype="multipart/form-data">
                   <fieldset>
@@ -18,13 +22,13 @@ if (isset($_SESSION['message'])) {
                     <div class="form-group">
                       <label for="blogName" class="col-lg-2 control-label">Title</label>
                       <div class="col-lg-10">
-                        <input name="blogName" type="text" class="form-control" id="blogName" value="$blogName" placeholder="Title">
+                        <input required name="blogName" type="text" class="form-control" id="blogName" value="$blogName" placeholder="Title">
                       </div>
                     </div>
                     <div class="form-group">
                       <label for="blogText" class="col-lg-2 control-label">Text</label>
                       <div class="col-lg-10">
-                        <textarea name="blogText" class="form-control" rows="3" id="blogText">$blogText</textarea>
+                        <textarea required name="blogText" class="form-control" rows="3" id="blogText">$blogText</textarea>
                         <span class="help-block">Here you can write the description of your Blog to show the world the beauty of your Blog.</span>
                       </div>
                     </div>
