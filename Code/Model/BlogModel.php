@@ -19,7 +19,7 @@ class BlogModel extends Model
      * @return array
      * reads blog entities with a specific userid or blogid given
      */
-    public function read($userId = 0,$blogId = 0) {
+    public function read($userId = 0,$blogId = 0,$page = 0) {
         $db = new MyDB();
         $st = "";
 
@@ -33,16 +33,20 @@ EOF;
         } elseif ($userId == 0 && $blogId == 0) {
             $sql = <<<EOF
                         SELECT B.Titel as Titel, B.Text as Text, B.Date as Date, U.Email as Email, U.Nickname as Nick, C.Description as Descr, U.ID as UID, count(Co.ID) as Comments, B.ID as ID, C.ID as CID
-                        FROM Blog as B JOIN Users as U ON B.UserId = U.ID JOIN Categorie as C ON B.CategorieID = C.ID LEFT JOIN Comments as Co ON B.ID = Co.BlogID GROUP BY B.ID ORDER BY B.Date desc;
+                        FROM Blog as B JOIN Users as U ON B.UserId = U.ID JOIN Categorie as C ON B.CategorieID = C.ID LEFT JOIN Comments as Co ON B.ID = Co.BlogID GROUP BY B.ID ORDER BY B.Date desc LIMIT 7 OFFSET ?;
 EOF;
             $st = $db->prepare($sql);
+            $page = $page * 7;
+            $st->bindParam(1,$page);
         } else {
             $sql = <<<EOF
                         SELECT B.Titel as Titel, B.Text as Text, B.Date as Date, U.Email as Email, U.Nickname as Nick, C.Description as Descr, U.ID as UID, count(Co.ID) as Comments, B.ID as ID, C.ID as CID
-                        FROM Blog as B JOIN Users as U ON B.UserId = U.ID JOIN Categorie as C ON B.CategorieID = C.ID LEFT JOIN Comments as Co ON B.ID = Co.BlogID WHERE U.ID = ? GROUP BY B.ID ORDER BY B.Date desc;
+                        FROM Blog as B JOIN Users as U ON B.UserId = U.ID JOIN Categorie as C ON B.CategorieID = C.ID LEFT JOIN Comments as Co ON B.ID = Co.BlogID WHERE U.ID = ? GROUP BY B.ID ORDER BY B.Date desc LIMIT 7 OFFSET 0;
 EOF;
             $st = $db->prepare($sql);
+            $page = $page * 7;
             $st->bindParam(1,$userId);
+            $st->bindParam(2,$page);
         }
 
         $ret = $st->execute();
@@ -201,5 +205,28 @@ EOF;
             echo $db->lastErrorMsg();
         }
         $db->close();
+    }
+
+    /**
+     * @param int $userId
+     * @return int
+     * checks how many
+     */
+    public function howMany($userId = 0) {
+        $db = new MyDB();
+
+        $sql =<<<EOF
+                SELECT count(*) as number FROM Blog
+EOF;
+        $sql .= $userId == 0 ? ";" : "WHERE UserId = ?;";
+        $st = $db->prepare($sql);
+        if ($userId != 0) {$st->bindParam(1,$userId);}
+        $ret = $st->execute();
+        $result = array();
+        while($row = $ret->fetchArray(SQLITE3_ASSOC)) {
+            $result[] = $row['number'];
+        }
+        $db->close();
+        return $result[0];
     }
 }

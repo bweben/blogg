@@ -16,7 +16,7 @@ class CategoryModel
     /**
      * @param $id
      * @return array
-     * reads all blogentites which have a specific category id
+     * reads all blog entities which have a specific category id
      */
     public function read($id) {
         $db = new MyDB();

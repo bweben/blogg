@@ -62,11 +62,13 @@ class BlogController
      * makes the Overview of all Blog Entities or
      * limited by the user
      */
-    public function index($userId = 0) {
+    public function index($userId = 0,$page = 0) {
         $blogModel = new BlogModel();
         $view = new View("Overview");
-        $view->blogs = $blogModel->read($userId);
+        $view->blogs = $blogModel->read($userId,0,$page);
         $view->newBlog = "Create new Blog Entity";
+        $view->page = $page;
+        $view->more = $blogModel->howMany($userId) - ($page+1) * 7 > 0;
         $view->display();
     }
 

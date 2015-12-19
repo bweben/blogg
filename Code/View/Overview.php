@@ -36,7 +36,7 @@ EOF;
         $html = "";
         $categories = array();
         for($i = 0; $i < count($blogs);$i ++) {
-            if (!in_array($blogs[$i][5],$categories)) {
+            if (!in_array(array($blogs[$i][5],$blogs[$i][9]),$categories)) {
                 $categories[] = array($blogs[$i][5],$blogs[$i][9]);
             }
 
@@ -74,3 +74,17 @@ EOF;
 
         ?>
     </div>
+    <?php if ((isset($more) && isset($page)) && ($more || $page != 0)) {
+        echo '<ul class="pager">';
+        echo '<li class="previous ';
+        if ($page == 0) { echo "disabled";}
+        echo '"><a href="/blog/index/0/';
+        echo $page - 1;
+        echo '">&larr; Older</a></li>';
+        echo '<li class="next ';
+        if (!$more) {echo "disabled";}
+        echo '"><a href="/blog/index/0/';
+        echo $page + 1;
+        echo '">Newer &rarr;</a></li>';
+        echo '</ul>';
+    } ?>
