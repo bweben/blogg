@@ -78,13 +78,13 @@ EOF;
         echo '<ul class="pager">';
         echo '<li class="previous ';
         if ($page == 0) { echo "disabled";}
-        echo '"><a href="/blog/index/0/';
-        echo $page - 1;
-        echo '">&larr; Older</a></li>';
+        echo '"><a href="/blog/index/';
+        echo $user."/".($page - 1);
+        echo '">&larr; Newer</a></li>';
         echo '<li class="next ';
         if (!$more) {echo "disabled";}
-        echo '"><a href="/blog/index/0/';
-        echo $page + 1;
-        echo '">Newer &rarr;</a></li>';
+        echo '"><a href="/blog/index/';
+        echo $user."/".($page + 1);
+        echo '">Older &rarr;</a></li>';
         echo '</ul>';
     } ?>

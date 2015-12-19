@@ -68,6 +68,7 @@ class BlogController
         $view->blogs = $blogModel->read($userId,0,$page);
         $view->newBlog = "Create new Blog Entity";
         $view->page = $page;
+        $view->user = $userId;
         $view->more = $blogModel->howMany($userId) - ($page+1) * 7 > 0;
         $view->display();
     }
