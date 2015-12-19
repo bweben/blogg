@@ -3,7 +3,8 @@
 
 ## Installation
 1. Kopieren Sie das Projekt in irgendeinen Pfad
-2. Kopieren Sie den Projekt Pfad
+2. Kopieren Sie den Projekt Pfad x\x\blogg\code
+-> beachten unbedingt code als Verzeichnis eingeben und nicht blogg!!!
 
 ### Downloads
 1. Apache herunterladen (https://www.apachefriends.org/xampp-files/5.6.15/xampp-win32-5.6.15-1-VC11-installer.exe)
