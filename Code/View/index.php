@@ -9,7 +9,7 @@
         unset($_SESSION['message']);
     }
     ?>
-    <form class="form-horizontal" method="get" action="Login/login/" id="form1">
+    <form class="form-horizontal" method="get" action="/Login/login/" id="form1">
         <fieldset>
             <legend>Anmeldung</legend>
             <p id="error" hidden></p>
