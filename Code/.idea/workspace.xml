@@ -34,22 +34,24 @@
       <content type="file-editors">
         <state>
           <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-            <file leaf-file-name="stylesheet.css" pinned="false" current-in-tab="true">
+            <file leaf-file-name="stylesheet.css" pinned="false" current-in-tab="false">
               <entry file="file://$PROJECT_DIR$/View/css/stylesheet.css">
                 <provider selected="true" editor-type-id="text-editor">
-                  <state vertical-scroll-proportion="0.15027624">
+                  <state vertical-scroll-proportion="-5.230769">
                     <caret line="8" column="1" selection-start-line="8" selection-start-column="1" selection-end-line="8" selection-end-column="1" />
                     <folding />
                   </state>
                 </provider>
               </entry>
             </file>
-            <file leaf-file-name="blogcontroller.js" pinned="false" current-in-tab="false">
-              <entry file="file://$PROJECT_DIR$/View/js/blogcontroller.js">
+            <file leaf-file-name="messages.js" pinned="false" current-in-tab="true">
+              <entry file="file://$PROJECT_DIR$/View/js/messages.js">
                 <provider selected="true" editor-type-id="text-editor">
-                  <state vertical-scroll-proportion="0.0">
-                    <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-                    <folding />
+                  <state vertical-scroll-proportion="0.07303974">
+                    <caret line="6" column="43" selection-start-line="6" selection-start-column="43" selection-end-line="6" selection-end-column="43" />
+                    <folding>
+                      <element signature="e#0#42#0" expanded="false" />
+                    </folding>
                   </state>
                 </provider>
               </entry>
@@ -77,10 +79,10 @@
     <splitter split-orientation="horizontal" split-proportion="0.5552927">
       <split-first>
         <leaf SIDE_TABS_SIZE_LIMIT_KEY="600">
-          <file leaf-file-name="UserController.php" pinned="false" current-in-tab="true">
+          <file leaf-file-name="UserController.php" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/controller/UserController.php">
               <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="0.6437177">
+                <state vertical-scroll-proportion="-14.384615">
                   <caret line="22" column="83" selection-start-line="22" selection-start-column="83" selection-end-line="22" selection-end-column="83" />
                   <folding />
                 </state>
@@ -97,40 +99,11 @@
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="Overview.php" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/View/Overview.php">
-              <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="-1.9615384">
-                  <caret line="3" column="37" selection-start-line="3" selection-start-column="37" selection-end-line="3" selection-end-column="37" />
-                  <folding>
-                    <marker date="1450523240878" expanded="true" signature="1635:2333" placeholder="..." />
-                    <marker date="1450523240878" expanded="true" signature="1685:2314" placeholder="..." />
-                    <marker date="1450523240878" expanded="true" signature="1906:2014" placeholder="..." />
-                    <marker date="1450523240878" expanded="true" signature="1930:1956" placeholder="..." />
-                    <marker date="1450523240878" expanded="true" signature="1930:1989" placeholder="..." />
-                    <marker date="1450523240878" expanded="true" signature="2059:2291" placeholder="..." />
-                    <marker date="1450523240878" expanded="true" signature="2239:2266" placeholder="..." />
-                    <marker date="1450523240878" expanded="true" signature="2445:2459" placeholder="..." />
-                  </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
           <file leaf-file-name="OverviewOwn.php" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/View/OverviewOwn.php">
               <provider selected="true" editor-type-id="text-editor">
                 <state vertical-scroll-proportion="-1.9615384">
                   <caret line="3" column="37" selection-start-line="3" selection-start-column="37" selection-end-line="3" selection-end-column="37" />
-                  <folding />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="UserOverview.php" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/View/UserOverview.php">
-              <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="-4.576923">
-                  <caret line="7" column="22" selection-start-line="7" selection-start-column="22" selection-end-line="7" selection-end-column="22" />
                   <folding />
                 </state>
               </provider>
@@ -149,9 +122,28 @@
           <file leaf-file-name="CommentsController.php" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/controller/CommentsController.php">
               <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="-4.6923075">
+                <state vertical-scroll-proportion="-12.538462">
                   <caret line="55" column="104" selection-start-line="55" selection-start-column="104" selection-end-line="55" selection-end-column="104" />
                   <folding />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="Overview.php" pinned="false" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/View/Overview.php">
+              <provider selected="true" editor-type-id="text-editor">
+                <state vertical-scroll-proportion="0.6437177">
+                  <caret line="54" column="29" selection-start-line="54" selection-start-column="29" selection-end-line="54" selection-end-column="29" />
+                  <folding>
+                    <marker date="1450528621629" expanded="true" signature="1635:2325" placeholder="..." />
+                    <marker date="1450528621629" expanded="true" signature="1685:2306" placeholder="..." />
+                    <marker date="1450528621629" expanded="true" signature="1906:2014" placeholder="..." />
+                    <marker date="1450528621629" expanded="true" signature="1930:1956" placeholder="..." />
+                    <marker date="1450528621629" expanded="true" signature="1930:1989" placeholder="..." />
+                    <marker date="1450528621629" expanded="true" signature="2059:2283" placeholder="..." />
+                    <marker date="1450528621629" expanded="true" signature="2231:2258" placeholder="..." />
+                    <marker date="1450528621629" expanded="true" signature="2437:2451" placeholder="..." />
+                  </folding>
                 </state>
               </provider>
             </entry>
@@ -159,8 +151,8 @@
           <file leaf-file-name="DataCommentsController.php" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/controller/DataCommentsController.php">
               <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="-13.730769">
-                  <caret line="21" column="1" selection-start-line="21" selection-start-column="1" selection-end-line="21" selection-end-column="1" />
+                <state vertical-scroll-proportion="-9.153846">
+                  <caret line="14" column="21" selection-start-line="14" selection-start-column="21" selection-end-line="14" selection-end-column="21" />
                   <folding />
                 </state>
               </provider>
@@ -186,28 +178,28 @@
               </provider>
             </entry>
           </file>
-        </leaf>
-      </split-first>
-      <split-second>
-        <leaf SIDE_TABS_SIZE_LIMIT_KEY="600">
-          <file leaf-file-name="CommentsLoader.js" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/View/js/CommentsLoader.js">
+          <file leaf-file-name="CommentsModel.php" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/Model/CommentsModel.php">
               <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="0.0">
-                  <caret line="34" column="21" selection-start-line="34" selection-start-column="21" selection-end-line="34" selection-end-column="21" />
-                  <folding>
-                    <element signature="n#!!doc;n#setCommentsView#0" expanded="false" />
-                  </folding>
+                <state vertical-scroll-proportion="-10.461538">
+                  <caret line="53" column="53" selection-start-line="53" selection-start-column="53" selection-end-line="53" selection-end-column="53" />
+                  <folding />
                 </state>
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="CommentsModel.php" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/Model/CommentsModel.php">
+        </leaf>
+      </split-first>
+      <split-second>
+        <leaf SIDE_TABS_SIZE_LIMIT_KEY="600">
+          <file leaf-file-name="CommentsLoader.js" pinned="false" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/View/js/CommentsLoader.js">
               <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="-22.538462">
-                  <caret line="88" column="33" selection-start-line="88" selection-start-column="33" selection-end-line="88" selection-end-column="33" />
-                  <folding />
+                <state vertical-scroll-proportion="0.53212523">
+                  <caret line="23" column="39" selection-start-line="23" selection-start-column="39" selection-end-line="23" selection-end-column="39" />
+                  <folding>
+                    <element signature="n#!!doc;n#setCommentsView#0" expanded="false" />
+                  </folding>
                 </state>
               </provider>
             </entry>
@@ -250,12 +242,22 @@
           <file leaf-file-name="header.php" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/View/header.php">
               <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="-24.846153">
-                  <caret line="38" column="21" selection-start-line="38" selection-start-column="21" selection-end-line="38" selection-end-column="21" />
+                <state vertical-scroll-proportion="-23.884615">
+                  <caret line="48" column="110" selection-start-line="48" selection-start-column="108" selection-end-line="48" selection-end-column="110" />
                   <folding>
-                    <marker date="1450474027311" expanded="true" signature="2052:2498" placeholder="..." />
-                    <marker date="1450474027311" expanded="true" signature="2283:2476" placeholder="..." />
+                    <marker date="1450525209253" expanded="true" signature="2110:2556" placeholder="..." />
+                    <marker date="1450525209253" expanded="true" signature="2341:2534" placeholder="..." />
                   </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="main.php" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/View/main.php">
+              <provider selected="true" editor-type-id="text-editor">
+                <state vertical-scroll-proportion="-5.7090907">
+                  <caret line="63" column="83" selection-start-line="63" selection-start-column="82" selection-end-line="63" selection-end-column="83" />
+                  <folding />
                 </state>
               </provider>
             </entry>
@@ -270,10 +272,20 @@
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="BlogController.php" pinned="false" current-in-tab="true">
+          <file leaf-file-name="footer.php" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/View/footer.php">
+              <provider selected="true" editor-type-id="text-editor">
+                <state vertical-scroll-proportion="-4.6363635">
+                  <caret line="15" column="7" selection-start-line="15" selection-start-column="7" selection-end-line="15" selection-end-column="7" />
+                  <folding />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="BlogController.php" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/controller/BlogController.php">
               <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="0.32702237">
+                <state vertical-scroll-proportion="-7.3076925">
                   <caret line="172" column="0" selection-start-line="172" selection-start-column="0" selection-end-line="172" selection-end-column="0" />
                   <folding />
                 </state>
@@ -308,20 +320,15 @@
         <option value="$PROJECT_DIR$/View/js/validator.js" />
         <option value="$APPLICATION_CONFIG_DIR$/consoles/db/3fcecc07-ad25-4ab4-8730-127d85897e49/console.sql" />
         <option value="$APPLICATION_CONFIG_DIR$/consoles/db/a58e3c7f-81a3-46c8-b7e3-18d21c86ad9d/console.sql" />
-        <option value="$PROJECT_DIR$/View/js/CommentsLoader.js" />
         <option value="$APPLICATION_CONFIG_DIR$/consoles/db/901a61d5-a812-4849-8f84-1fe0bcd6ca97/console.sql" />
         <option value="$APPLICATION_CONFIG_DIR$/consoles/db/0a8136d5-05f6-4bf5-b179-61488b0b3cd4/console.sql" />
         <option value="$APPLICATION_CONFIG_DIR$/consoles/db/5cb9d04c-ec78-4b94-b7a3-92a85db52eab/console.sql" />
-        <option value="$PROJECT_DIR$/View/header.php" />
         <option value="$PROJECT_DIR$/controller/CategoryController.php" />
-        <option value="$PROJECT_DIR$/controller/DataCommentsController.php" />
         <option value="$PROJECT_DIR$/View/404.php" />
-        <option value="$PROJECT_DIR$/View/footer.php" />
         <option value="$PROJECT_DIR$/Model/AllBlogs.php" />
         <option value="$PROJECT_DIR$/lib/Model.php" />
         <option value="$PROJECT_DIR$/lib/View.php" />
         <option value="$PROJECT_DIR$/Model/CategoryModel.php" />
-        <option value="$PROJECT_DIR$/Model/CommentsModel.php" />
         <option value="$PROJECT_DIR$/Model/Database.php" />
         <option value="$PROJECT_DIR$/Model/LoginModel.php" />
         <option value="$PROJECT_DIR$/Model/UserModel.php" />
@@ -330,7 +337,6 @@
         <option value="$PROJECT_DIR$/View/UserOverview.php" />
         <option value="$PROJECT_DIR$/View/main.php" />
         <option value="$PROJECT_DIR$/View/newBlog.php" />
-        <option value="$PROJECT_DIR$/View/Overview.php" />
         <option value="$PROJECT_DIR$/View/OverviewOwn.php" />
         <option value="$PROJECT_DIR$/controller/BlogController.php" />
         <option value="$PROJECT_DIR$/lib/Dispatcher.php" />
@@ -338,6 +344,13 @@
         <option value="$PROJECT_DIR$/Model/BlogModel.php" />
         <option value="$PROJECT_DIR$/controller/CommentsController.php" />
         <option value="$PROJECT_DIR$/controller/UserController.php" />
+        <option value="$PROJECT_DIR$/View/js/messages.js" />
+        <option value="$PROJECT_DIR$/View/header.php" />
+        <option value="$PROJECT_DIR$/View/footer.php" />
+        <option value="$PROJECT_DIR$/Model/CommentsModel.php" />
+        <option value="$PROJECT_DIR$/controller/DataCommentsController.php" />
+        <option value="$PROJECT_DIR$/View/Overview.php" />
+        <option value="$PROJECT_DIR$/View/js/CommentsLoader.js" />
       </list>
     </option>
   </component>
@@ -762,14 +775,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/View/js/blogcontroller.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$APPLICATION_CONFIG_DIR$/consoles/db/0a8136d5-05f6-4bf5-b179-61488b0b3cd4/console.sql">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -798,35 +803,6 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="1" column="10" selection-start-line="1" selection-start-column="10" selection-end-line="1" selection-end-column="10" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/View/js/CommentsLoader.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="34" column="21" selection-start-line="34" selection-start-column="21" selection-end-line="34" selection-end-column="21" />
-          <folding>
-            <element signature="n#!!doc;n#setCommentsView#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/View/footer.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="16" column="0" selection-start-line="16" selection-start-column="0" selection-end-line="16" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/View/header.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-24.846153">
-          <caret line="38" column="21" selection-start-line="38" selection-start-column="21" selection-end-line="38" selection-end-column="21" />
-          <folding>
-            <marker date="1450474027311" expanded="true" signature="2052:2498" placeholder="..." />
-            <marker date="1450474027311" expanded="true" signature="2283:2476" placeholder="..." />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -874,14 +850,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Model/CommentsModel.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-22.538462">
-          <caret line="88" column="33" selection-start-line="88" selection-start-column="33" selection-end-line="88" selection-end-column="33" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/View/HTML/signedIn.php">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-0.65384614">
@@ -897,7 +865,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/View/css/stylesheet.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.15027624">
+        <state vertical-scroll-proportion="-5.230769">
           <caret line="8" column="1" selection-start-line="8" selection-start-column="1" selection-end-line="8" selection-end-column="1" />
           <folding />
         </state>
@@ -915,60 +883,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-6.1923075">
           <caret line="18" column="31" selection-start-line="18" selection-start-column="31" selection-end-line="18" selection-end-column="31" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/View/main.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-1.9615384">
-          <caret line="3" column="37" selection-start-line="3" selection-start-column="37" selection-end-line="3" selection-end-column="37" />
-          <folding>
-            <marker date="1450523222690" expanded="true" signature="516:4585" placeholder="..." />
-            <marker date="1450523222690" expanded="true" signature="535:4573" placeholder="..." />
-            <marker date="1450523222690" expanded="true" signature="649:1060" placeholder="..." />
-            <marker date="1450523222690" expanded="true" signature="862:1041" placeholder="..." />
-            <marker date="1450523222690" expanded="true" signature="1097:1750" placeholder="..." />
-            <marker date="1450523222690" expanded="true" signature="1340:1731" placeholder="..." />
-            <marker date="1450523222690" expanded="true" signature="1469:1708" placeholder="..." />
-            <marker date="1450523222690" expanded="true" signature="1787:2359" placeholder="..." />
-            <marker date="1450523222690" expanded="true" signature="1999:2340" placeholder="..." />
-            <marker date="1450523222690" expanded="true" signature="2119:2317" placeholder="..." />
-            <marker date="1450523222690" expanded="true" signature="2396:2913" placeholder="..." />
-            <marker date="1450523222690" expanded="true" signature="2527:2894" placeholder="..." />
-            <marker date="1450523222690" expanded="true" signature="3004:3346" placeholder="..." />
-            <marker date="1450523222690" expanded="true" signature="3190:3327" placeholder="..." />
-            <marker date="1450523222690" expanded="true" signature="3416:3934" placeholder="..." />
-            <marker date="1450523222690" expanded="true" signature="3561:3915" placeholder="..." />
-            <marker date="1450523222690" expanded="true" signature="3650:3892" placeholder="..." />
-            <marker date="1450523222690" expanded="true" signature="3971:4252" placeholder="..." />
-            <marker date="1450523222690" expanded="true" signature="4027:4233" placeholder="..." />
-            <marker date="1450523222690" expanded="true" signature="4278:4553" placeholder="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/View/Overview.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-1.9615384">
-          <caret line="3" column="37" selection-start-line="3" selection-start-column="37" selection-end-line="3" selection-end-column="37" />
-          <folding>
-            <marker date="1450523240878" expanded="true" signature="1635:2333" placeholder="..." />
-            <marker date="1450523240878" expanded="true" signature="1685:2314" placeholder="..." />
-            <marker date="1450523240878" expanded="true" signature="1906:2014" placeholder="..." />
-            <marker date="1450523240878" expanded="true" signature="1930:1956" placeholder="..." />
-            <marker date="1450523240878" expanded="true" signature="1930:1989" placeholder="..." />
-            <marker date="1450523240878" expanded="true" signature="2059:2291" placeholder="..." />
-            <marker date="1450523240878" expanded="true" signature="2239:2266" placeholder="..." />
-            <marker date="1450523240878" expanded="true" signature="2445:2459" placeholder="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/View/OverviewOwn.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-1.9615384">
-          <caret line="3" column="37" selection-start-line="3" selection-start-column="37" selection-end-line="3" selection-end-column="37" />
           <folding />
         </state>
       </provider>
@@ -1013,22 +927,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/controller/CommentsController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-4.6923075">
-          <caret line="55" column="104" selection-start-line="55" selection-start-column="104" selection-end-line="55" selection-end-column="104" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/controller/DataCommentsController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-13.730769">
-          <caret line="21" column="1" selection-start-line="21" selection-start-column="1" selection-end-line="21" selection-end-column="1" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/controller/LoginController.php">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-12.423077">
@@ -1037,19 +935,115 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/controller/UserController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-14.384615">
+          <caret line="22" column="83" selection-start-line="22" selection-start-column="83" selection-end-line="22" selection-end-column="83" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/controller/BlogController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.32702237">
+        <state vertical-scroll-proportion="-7.3076925">
           <caret line="172" column="0" selection-start-line="172" selection-start-column="0" selection-end-line="172" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/controller/UserController.php">
+    <entry file="file://$PROJECT_DIR$/View/js/messages.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.07303974">
+          <caret line="6" column="43" selection-start-line="6" selection-start-column="43" selection-end-line="6" selection-end-column="43" />
+          <folding>
+            <element signature="e#0#42#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/View/OverviewOwn.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-1.9615384">
+          <caret line="3" column="37" selection-start-line="3" selection-start-column="37" selection-end-line="3" selection-end-column="37" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/controller/CommentsController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-12.538462">
+          <caret line="55" column="104" selection-start-line="55" selection-start-column="104" selection-end-line="55" selection-end-column="104" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/View/header.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-23.884615">
+          <caret line="48" column="110" selection-start-line="48" selection-start-column="108" selection-end-line="48" selection-end-column="110" />
+          <folding>
+            <marker date="1450525209253" expanded="true" signature="2110:2556" placeholder="..." />
+            <marker date="1450525209253" expanded="true" signature="2341:2534" placeholder="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/View/main.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-5.7090907">
+          <caret line="63" column="83" selection-start-line="63" selection-start-column="82" selection-end-line="63" selection-end-column="83" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/View/footer.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-4.6363635">
+          <caret line="15" column="7" selection-start-line="15" selection-start-column="7" selection-end-line="15" selection-end-column="7" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Model/CommentsModel.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-10.461538">
+          <caret line="53" column="53" selection-start-line="53" selection-start-column="53" selection-end-line="53" selection-end-column="53" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/controller/DataCommentsController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-9.153846">
+          <caret line="14" column="21" selection-start-line="14" selection-start-column="21" selection-end-line="14" selection-end-column="21" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/View/Overview.php">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.6437177">
-          <caret line="22" column="83" selection-start-line="22" selection-start-column="83" selection-end-line="22" selection-end-column="83" />
-          <folding />
+          <caret line="54" column="29" selection-start-line="54" selection-start-column="29" selection-end-line="54" selection-end-column="29" />
+          <folding>
+            <marker date="1450528621629" expanded="true" signature="1635:2325" placeholder="..." />
+            <marker date="1450528621629" expanded="true" signature="1685:2306" placeholder="..." />
+            <marker date="1450528621629" expanded="true" signature="1906:2014" placeholder="..." />
+            <marker date="1450528621629" expanded="true" signature="1930:1956" placeholder="..." />
+            <marker date="1450528621629" expanded="true" signature="1930:1989" placeholder="..." />
+            <marker date="1450528621629" expanded="true" signature="2059:2283" placeholder="..." />
+            <marker date="1450528621629" expanded="true" signature="2231:2258" placeholder="..." />
+            <marker date="1450528621629" expanded="true" signature="2437:2451" placeholder="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/View/js/CommentsLoader.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.53212523">
+          <caret line="23" column="39" selection-start-line="23" selection-start-column="39" selection-end-line="23" selection-end-column="39" />
+          <folding>
+            <element signature="n#!!doc;n#setCommentsView#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>

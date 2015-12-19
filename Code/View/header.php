@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -16,9 +15,10 @@
     <link href="/View/css/stylesheet.css" rel="stylesheet">
 
     <script src="/View/js/jquery.js"></script>
-    <script src="/bootstrap/bootstrap-3.3.6-dist/js/bootstrap.min.js"></script>
-    <script src="/bootstrap/bootstrap-3.3.6-dist/js/npm.js"></script>
+    <script src="/View/bootstrap/bootstrap-3.3.6-dist/js/bootstrap.min.js"></script>
+    <script src="/View/bootstrap/bootstrap-3.3.6-dist/js/npm.js"></script>
     <script src="/View/js/CommentsLoader.js"></script>
+    <script src="/View/js/messages.js"></script>
 </head>
 <body>
 <nav class="navbar navbar-default">

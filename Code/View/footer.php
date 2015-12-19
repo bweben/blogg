@@ -10,7 +10,7 @@
 </div>
 
 <script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
-<script src="/bootstrap/bootstrap-3.3.6-dist/js/bootstrap.min.js"></script>
+<script src="/View/bootstrap/bootstrap-3.3.6-dist/js/bootstrap.min.js"></script>
 </div>
 </body>
 </html>

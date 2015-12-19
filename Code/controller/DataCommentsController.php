@@ -17,6 +17,8 @@ class DataCommentsController
      */
     public function read($id = 0) {
         $commentsModel = new CommentsModel();
-        echo json_encode($commentsModel->readComments($id,0));
+        $comments = $commentsModel->readComments($id,0);
+        $comments[] = $id;
+        echo json_encode($comments);
     }
 }
