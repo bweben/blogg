@@ -99,11 +99,11 @@
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="OverviewOwn.php" pinned="false" current-in-tab="true">
+          <file leaf-file-name="OverviewOwn.php" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/View/OverviewOwn.php">
               <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="0.6729776">
-                  <caret line="41" column="74" selection-start-line="41" selection-start-column="74" selection-end-line="41" selection-end-column="74" />
+                <state vertical-scroll-proportion="-17.115385">
+                  <caret line="40" column="1" selection-start-line="40" selection-start-column="1" selection-end-line="40" selection-end-column="1" />
                   <folding>
                     <marker date="1450534885436" expanded="true" signature="2217:2512" placeholder="..." />
                     <marker date="1450534885436" expanded="true" signature="2268:2491" placeholder="..." />
@@ -133,20 +133,20 @@
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="Overview.php" pinned="false" current-in-tab="false">
+          <file leaf-file-name="Overview.php" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/View/Overview.php">
               <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="-35.307693">
-                  <caret line="54" column="29" selection-start-line="54" selection-start-column="29" selection-end-line="54" selection-end-column="29" />
+                <state vertical-scroll-proportion="0.8244406">
+                  <caret line="75" column="10" selection-start-line="75" selection-start-column="10" selection-end-line="75" selection-end-column="10" />
                   <folding>
-                    <marker date="1450528621629" expanded="true" signature="1635:2325" placeholder="..." />
-                    <marker date="1450528621629" expanded="true" signature="1685:2306" placeholder="..." />
-                    <marker date="1450528621629" expanded="true" signature="1906:2014" placeholder="..." />
-                    <marker date="1450528621629" expanded="true" signature="1930:1956" placeholder="..." />
-                    <marker date="1450528621629" expanded="true" signature="1930:1989" placeholder="..." />
-                    <marker date="1450528621629" expanded="true" signature="2059:2283" placeholder="..." />
-                    <marker date="1450528621629" expanded="true" signature="2231:2258" placeholder="..." />
-                    <marker date="1450528621629" expanded="true" signature="2437:2451" placeholder="..." />
+                    <marker date="1450536819789" expanded="true" signature="1635:2325" placeholder="..." />
+                    <marker date="1450536819789" expanded="true" signature="1685:2306" placeholder="..." />
+                    <marker date="1450536819789" expanded="true" signature="1906:2014" placeholder="..." />
+                    <marker date="1450536819789" expanded="true" signature="1930:1956" placeholder="..." />
+                    <marker date="1450536819789" expanded="true" signature="1930:1989" placeholder="..." />
+                    <marker date="1450536819789" expanded="true" signature="2059:2283" placeholder="..." />
+                    <marker date="1450536819789" expanded="true" signature="2231:2258" placeholder="..." />
+                    <marker date="1450536819789" expanded="true" signature="2437:2451" placeholder="..." />
                   </folding>
                 </state>
               </provider>
@@ -189,8 +189,8 @@
           <file leaf-file-name="CommentsLoader.js" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/View/js/CommentsLoader.js">
               <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="0.5601318">
-                  <caret line="20" column="67" selection-start-line="20" selection-start-column="67" selection-end-line="20" selection-end-column="67" />
+                <state vertical-scroll-proportion="-0.3443163">
+                  <caret line="16" column="41" selection-start-line="16" selection-start-column="41" selection-end-line="16" selection-end-column="41" />
                   <folding>
                     <element signature="n#!!doc" expanded="true" />
                     <marker date="1450534894535" expanded="true" signature="584:726" placeholder="..." />
@@ -355,9 +355,9 @@
         <option value="$PROJECT_DIR$/View/footer.php" />
         <option value="$PROJECT_DIR$/Model/CommentsModel.php" />
         <option value="$PROJECT_DIR$/controller/DataCommentsController.php" />
-        <option value="$PROJECT_DIR$/View/Overview.php" />
         <option value="$PROJECT_DIR$/View/OverviewOwn.php" />
         <option value="$PROJECT_DIR$/View/js/CommentsLoader.js" />
+        <option value="$PROJECT_DIR$/View/Overview.php" />
       </list>
     </option>
   </component>
@@ -976,23 +976,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/View/Overview.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-35.307693">
-          <caret line="54" column="29" selection-start-line="54" selection-start-column="29" selection-end-line="54" selection-end-column="29" />
-          <folding>
-            <marker date="1450528621629" expanded="true" signature="1635:2325" placeholder="..." />
-            <marker date="1450528621629" expanded="true" signature="1685:2306" placeholder="..." />
-            <marker date="1450528621629" expanded="true" signature="1906:2014" placeholder="..." />
-            <marker date="1450528621629" expanded="true" signature="1930:1956" placeholder="..." />
-            <marker date="1450528621629" expanded="true" signature="1930:1989" placeholder="..." />
-            <marker date="1450528621629" expanded="true" signature="2059:2283" placeholder="..." />
-            <marker date="1450528621629" expanded="true" signature="2231:2258" placeholder="..." />
-            <marker date="1450528621629" expanded="true" signature="2437:2451" placeholder="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/View/header.php">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-18.307692">
@@ -1036,10 +1019,23 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/View/js/CommentsLoader.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-0.3443163">
+          <caret line="16" column="41" selection-start-line="16" selection-start-column="41" selection-end-line="16" selection-end-column="41" />
+          <folding>
+            <element signature="n#!!doc" expanded="true" />
+            <marker date="1450534894535" expanded="true" signature="584:726" placeholder="..." />
+            <marker date="1450534894535" expanded="true" signature="584:728" placeholder="..." />
+            <marker date="1450534894535" expanded="true" signature="584:749" placeholder="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/View/OverviewOwn.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.6729776">
-          <caret line="41" column="74" selection-start-line="41" selection-start-column="74" selection-end-line="41" selection-end-column="74" />
+        <state vertical-scroll-proportion="-17.115385">
+          <caret line="40" column="1" selection-start-line="40" selection-start-column="1" selection-end-line="40" selection-end-column="1" />
           <folding>
             <marker date="1450534885436" expanded="true" signature="2217:2512" placeholder="..." />
             <marker date="1450534885436" expanded="true" signature="2268:2491" placeholder="..." />
@@ -1048,15 +1044,19 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/View/js/CommentsLoader.js">
+    <entry file="file://$PROJECT_DIR$/View/Overview.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.5601318">
-          <caret line="20" column="67" selection-start-line="20" selection-start-column="67" selection-end-line="20" selection-end-column="67" />
+        <state vertical-scroll-proportion="0.8244406">
+          <caret line="75" column="10" selection-start-line="75" selection-start-column="10" selection-end-line="75" selection-end-column="10" />
           <folding>
-            <element signature="n#!!doc" expanded="true" />
-            <marker date="1450534894535" expanded="true" signature="584:726" placeholder="..." />
-            <marker date="1450534894535" expanded="true" signature="584:728" placeholder="..." />
-            <marker date="1450534894535" expanded="true" signature="584:749" placeholder="..." />
+            <marker date="1450536819789" expanded="true" signature="1635:2325" placeholder="..." />
+            <marker date="1450536819789" expanded="true" signature="1685:2306" placeholder="..." />
+            <marker date="1450536819789" expanded="true" signature="1906:2014" placeholder="..." />
+            <marker date="1450536819789" expanded="true" signature="1930:1956" placeholder="..." />
+            <marker date="1450536819789" expanded="true" signature="1930:1989" placeholder="..." />
+            <marker date="1450536819789" expanded="true" signature="2059:2283" placeholder="..." />
+            <marker date="1450536819789" expanded="true" signature="2231:2258" placeholder="..." />
+            <marker date="1450536819789" expanded="true" signature="2437:2451" placeholder="..." />
           </folding>
         </state>
       </provider>
