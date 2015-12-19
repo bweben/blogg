@@ -36,7 +36,7 @@ EOF;
         $html = "";
         $categories = array();
         for($i = 0; $i < count($blogs);$i ++) {
-            if (!in_array($blogs[$i][5],$categories)) {
+            if (!in_array(array($blogs[$i][5],$blogs[$i][9]),$categories)) {
                 $categories[] = array($blogs[$i][5],$blogs[$i][9]);
             }
 
